@@ -1,5 +1,7 @@
 package eu.van_dijken.vlottegeesten.engine;
 
+import eu.van_dijken.vlottegeesten.cards.PlayingCard;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class VlotteGeestenGame {
     private ArrayList<PlayingCard> generateCards() {
         ArrayList<PlayingCard> cards = new ArrayList<PlayingCard>();
         for (int i = 0; i < 60; i++) {
-            playingCards.add(new PlayingCard());
+            cards.add(new PlayingCard());
         }
         return cards;
     }
