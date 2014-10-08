@@ -1,6 +1,9 @@
 Feature: Game Objects
+  In order to start the game
+  Gamemaster
+  wants to check the starting game state
 
-  Scenario: Checking the playing objects
+  Scenario: 1. Checking the playing objects
     Given A new game of Vlotte Geesten
     Then the following playing objects should be present:
       | color | type   |
@@ -13,3 +16,7 @@ Feature: Game Objects
       | color | type   |
       | White | Chair  |
       | Blue  | Bottle |
+
+  Scenario: 2. Checking the deck of cards
+    Given A new game of Vlotte Geesten
+    Then the deck should contain 60 cards
