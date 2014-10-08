@@ -5,6 +5,7 @@ import cucumber.api.java.en.Then;
 
 import java.util.List;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class GameStartStepDefinitions {
@@ -22,4 +23,9 @@ public class GameStartStepDefinitions {
             assertTrue(game.contains(playingObject));
         }
     }
-}
+    @Then("^the following playing objects should not be present:$")
+    public void the_following_playing_objects_should_not_be_present(List<PlayingObject> entries) throws Throwable {
+        for (PlayingObject playingObject : entries) {
+            assertFalse(game.contains(playingObject));
+        }
+    }}
