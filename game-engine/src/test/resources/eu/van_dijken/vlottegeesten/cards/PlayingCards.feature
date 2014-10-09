@@ -10,9 +10,18 @@ Feature: Playing Cards
   Scenario: 4. Solution is the object that is shown in the right colour
     Given a playing card with objects displayed:
       | color | type   |
-      | White | Ghost  |
-      | White | Chair  |
+      | Gray | Mouse  |
+      | Blue | Ghost  |
     When the player chooses playing object:
       | color | type   |
-      | White | Ghost  |
+      | Gray | Mouse  |
     Then that is the correct solution
+    Given a playing card with objects displayed:
+      | color | type   |
+      | Blue | Mouse  |
+      | Red | Chair  |
+    When the player chooses playing object:
+      | color | type   |
+      | Red | Chair  |
+    Then that is the correct solution
+
