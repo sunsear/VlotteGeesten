@@ -16,7 +16,7 @@ public class VlotteGeestenGame {
         tokens.add(new GameToken("Red", "Chair"));
         tokens.add(new GameToken("Blue", "Book"));
         tokens.add(new GameToken("Green", "Bottle"));
-        tokens.add(new GameToken("Grey", "Mouse"));
+        tokens.add(new GameToken("Gray", "Mouse"));
         playingCards = generateCards();
     }
 
@@ -26,6 +26,23 @@ public class VlotteGeestenGame {
             cards.add(new PlayingCard());
         }
         return cards;
+    }
+
+    public boolean isValid(PlayingCard cardToCheck) {
+        if (!cardToCheck.isValid()) {
+            return false;
+        }
+        boolean solutionFound = false;
+        for (GameToken token : tokens) {
+            boolean found = cardToCheck.contains(token);
+            if (found) {
+                if (solutionFound) {
+                    return false;
+                }
+                solutionFound = true;
+            }
+        }
+        return true;
     }
 
     public boolean contains(GameToken gameToken) {

@@ -1,6 +1,7 @@
 package eu.van_dijken.vlottegeesten.engine;
 
 public class ObjectWithColourAndType {
+    //TODO: change into enums!
     String color;
     String type;
 

@@ -1,7 +1,7 @@
 Feature: Playing Cards
   In order to have a correctly working set of cards
   Gamemaster
-  wants to check the validity of each card
+  wants to check that cards have a solution
 
   Scenario: 3. Number of images on card
     Given A random Playing Card
@@ -60,23 +60,3 @@ Feature: Playing Cards
       | color | type  |
       | Gray  | Mouse |
     Then that is not the correct solution
-
-  Scenario: 7. Card is valid only if a color is present at most once
-    Given a playing card with tokens displayed:
-      | color | type   |
-      | Blue  | Bottle |
-      | Blue  | Chair  |
-    Then that card is not valid
-    Given a playing card with tokens displayed:
-      | color | type   |
-      | Blue  | Bottle |
-      | Gray  | Chair  |
-    Then that card is valid
-
-  Scenario: 8. Card is valid only if a token is present at most once
-    Given a playing card with tokens displayed:
-      | color | type   |
-      | Red   | Bottle |
-      | Blue  | Bottle |
-    Then that card is not valid
-
