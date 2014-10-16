@@ -42,6 +42,8 @@ Feature: Playing Cards
       | color | type   |
       | White | Ghost  |
     Then that is the correct solution
+
+  Scenario: 6. Wrong token chosen
     Given a playing card with tokens displayed:
       | color | type   |
       | Blue | Bottle  |
