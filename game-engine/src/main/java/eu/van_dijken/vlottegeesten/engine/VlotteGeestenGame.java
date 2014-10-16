@@ -6,7 +6,7 @@ import java.util.List;
 public class VlotteGeestenGame {
 
     private final List<GameToken> tokens;
-    private ArrayList<PlayingCard> playingCards;
+    private List<PlayingCard> playingCards;
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
@@ -18,17 +18,51 @@ public class VlotteGeestenGame {
         playingCards = generateCards();
     }
 
-    private ArrayList<PlayingCard> generateCards() {
-        ArrayList<PlayingCard> cards = new ArrayList<PlayingCard>();
+    private List<PlayingCard> generateCards() {
+        List<CardImage> allImages = getAllPossibleCardImages();
+        ArrayList<PlayingCard> cards = generateAllPotentialPlayingCards(allImages);
+        cards = pruneAllNonValidCards(cards);
+        return limitTo60Cards(cards);
+    }
+
+    private List<PlayingCard> limitTo60Cards(ArrayList<PlayingCard> validCards) {
+        List<PlayingCard> limitedTo60 = new ArrayList<PlayingCard>();
         for (int i = 0; i < 60; i++) {
-            PlayingCard playingCard = new PlayingCard();
-            List<CardImage> images = new ArrayList<CardImage>();
-            images.add(new CardImage(TokenColor.Blue, TokenType.Book));
-            images.add(new CardImage(TokenColor.Gray, TokenType.Chair));
-            playingCard.addImages(images);
-            cards.add(playingCard);
+            limitedTo60.add(validCards.get(i));
+        }
+        return limitedTo60;
+    }
+
+    private ArrayList<PlayingCard> pruneAllNonValidCards(ArrayList<PlayingCard> cards) {
+        ArrayList<PlayingCard> validCards = new ArrayList<PlayingCard>();
+        for (PlayingCard card : cards) {
+            if (isValid(card) && !validCards.contains(card)) {
+                validCards.add(card);
+            }
+        }
+        return validCards;
+    }
+
+    private ArrayList<PlayingCard> generateAllPotentialPlayingCards(List<CardImage> allImages) {
+        ArrayList<PlayingCard> cards = new ArrayList<PlayingCard>();
+        for (CardImage image : allImages) {
+            for (CardImage image2 : allImages) {
+                PlayingCard playingCard = new PlayingCard();
+                playingCard.addImages(image, image2);
+                cards.add(playingCard);
+            }
         }
         return cards;
+    }
+
+    private List<CardImage> getAllPossibleCardImages() {
+        List<CardImage> allImages = new ArrayList<CardImage>();
+        for (TokenType type : TokenType.values()) {
+            for (TokenColor color : TokenColor.values()) {
+                allImages.add(new CardImage(color, type));
+            }
+        }
+        return allImages;
     }
 
     public boolean isValid(PlayingCard cardToCheck) {
@@ -82,10 +116,9 @@ public class VlotteGeestenGame {
 
     public boolean isPresentOnce(PlayingCard cardToCheck) {
         int foundTimes = 0;
-        for (int i=0;i<playingCards.size();i++) {
+        for (int i = 0; i < playingCards.size(); i++) {
             if (playingCards.get(i).equals(cardToCheck)) {
                 foundTimes++;
-                System.out.println("Found the card:"+foundTimes+":"+i);
             }
         }
         return foundTimes == 1;

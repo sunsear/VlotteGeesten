@@ -57,7 +57,7 @@ public class GameStepDefinitions {
     @Then("^the deck should contain (\\d+) unique cards$")
     public void the_deck_should_contain_unique_cards(int arg1) throws Throwable {
         for (PlayingCard card : context.getGame().availableCards()) {
-            assertTrue("Playing Card " + card + " is present in the deck more than once.",
+                assertTrue(card + " is present in the deck more than once.",
                     context.getGame().isPresentOnce(card));
         }
     }

@@ -65,9 +65,7 @@ Feature: Playing Card generation
     Then that card is valid according to game rules
 
   Scenario: 11. Checking the validity of the complete deck of cards
-    Given a new game of Vlotte Geesten
     Then the deck should contain 60 valid cards
 
   Scenario: 11. Checking the uniqueness of the complete deck of cards
-    Given a new game of Vlotte Geesten
     Then the deck should contain 60 unique cards

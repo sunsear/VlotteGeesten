@@ -1,6 +1,7 @@
 package eu.van_dijken.vlottegeesten.engine;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PlayingCard {
@@ -17,6 +18,13 @@ public class PlayingCard {
     public boolean correctTokenChosen() {
         GameToken tokenToCheck = chosenToken;
         return isCorrectSolution(tokenToCheck);
+    }
+
+    @Override
+    public String toString() {
+        return "PlayingCard{" +
+                "with images=" + cardImages +
+                '}';
     }
 
     boolean isCorrectSolution(ObjectWithColourAndType tokenToCheck) {
@@ -54,6 +62,10 @@ public class PlayingCard {
         cardImages.addAll(imagesDisplayed);
     }
 
+    public void addImages(CardImage... imagesDisplayed) {
+        cardImages.addAll(Arrays.asList(imagesDisplayed));
+    }
+
     public void chooseToken(GameToken gameToken) {
         chosenToken = gameToken;
     }
@@ -68,5 +80,30 @@ public class PlayingCard {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        PlayingCard that = (PlayingCard) o;
+
+        for (CardImage image:cardImages){
+            if (!that.cardImages.contains(image)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return cardImages.hashCode();
     }
 }
