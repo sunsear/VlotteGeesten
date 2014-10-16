@@ -1,6 +1,6 @@
 package eu.van_dijken.vlottegeesten.cards;
 
-import eu.van_dijken.vlottegeesten.engine.PlayingObject;
+import eu.van_dijken.vlottegeesten.engine.GameToken;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 public class PlayingCard {
 
     private List<CardImage> cardImages = new ArrayList<CardImage>();
-    private PlayingObject chosenObject;
+    private GameToken chosenToken;
 
     public List<CardImage> images() {
         cardImages.add(new CardImage("Blue","Toilet"));
@@ -16,20 +16,28 @@ public class PlayingCard {
         return cardImages;
     }
 
-    public boolean correctObjectChosen() {
+    public boolean correctTokenChosen() {
         for(CardImage image:cardImages){
-            if (image.matches(chosenObject)){
+            if (image.matches(chosenToken)){
                 return true;
             }
         }
-        return false;
+        for(CardImage image:cardImages){
+            if (image.getColor().equals(chosenToken.getColor())){
+                return false;
+            }
+            if (image.getType().equals(chosenToken.getType())){
+                return false;
+            }
+        }
+        return true;
     }
 
     public void addImages(List<CardImage> imagesDisplayed) {
         cardImages.addAll(imagesDisplayed);
     }
 
-    public void chooseObject(PlayingObject playingObject) {
-        chosenObject = playingObject;
+    public void chooseToken(GameToken gameToken) {
+        chosenToken = gameToken;
     }
 }

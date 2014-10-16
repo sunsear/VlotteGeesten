@@ -18,17 +18,17 @@ public class GameStartStepDefinitions {
         game = new VlotteGeestenGame();
     }
 
-    @Then("^the following playing objects should be present:$")
-    public void the_following_playing_objects_should_be_present(List<PlayingObject> entries) throws Throwable {
-        for (PlayingObject playingObject : entries) {
-            assertTrue(game.contains(playingObject));
+    @Then("^the following game tokens should be present:$")
+    public void the_following_game_tokens_should_be_present(List<GameToken> entries) throws Throwable {
+        for (GameToken gameToken : entries) {
+            assertTrue(game.contains(gameToken));
         }
     }
 
-    @Then("^the following playing objects should not be present:$")
-    public void the_following_playing_objects_should_not_be_present(List<PlayingObject> entries) throws Throwable {
-        for (PlayingObject playingObject : entries) {
-            assertFalse(game.contains(playingObject));
+    @Then("^the following game tokens should not be present:$")
+    public void the_following_game_tokens_should_not_be_present(List<GameToken> entries) throws Throwable {
+        for (GameToken gameToken : entries) {
+            assertFalse(game.contains(gameToken));
         }
     }
 

@@ -7,16 +7,16 @@ import java.util.List;
 
 public class VlotteGeestenGame {
 
-    private final List<PlayingObject> objects;
+    private final List<GameToken> tokens;
     private ArrayList<PlayingCard> playingCards;
 
     public VlotteGeestenGame() {
-        objects = new ArrayList<PlayingObject>();
-        objects.add(new PlayingObject("White", "Ghost"));
-        objects.add(new PlayingObject("Red", "Chair"));
-        objects.add(new PlayingObject("Blue", "Book"));
-        objects.add(new PlayingObject("Green", "Bottle"));
-        objects.add(new PlayingObject("Grey", "Mouse"));
+        tokens = new ArrayList<GameToken>();
+        tokens.add(new GameToken("White", "Ghost"));
+        tokens.add(new GameToken("Red", "Chair"));
+        tokens.add(new GameToken("Blue", "Book"));
+        tokens.add(new GameToken("Green", "Bottle"));
+        tokens.add(new GameToken("Grey", "Mouse"));
         playingCards = generateCards();
     }
 
@@ -28,8 +28,8 @@ public class VlotteGeestenGame {
         return cards;
     }
 
-    public boolean contains(PlayingObject playingObject) {
-        return objects.contains(playingObject);
+    public boolean contains(GameToken gameToken) {
+        return tokens.contains(gameToken);
     }
 
     public List<PlayingCard> availableCards() {

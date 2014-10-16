@@ -3,16 +3,16 @@ Feature: Game Objects
   Gamemaster
   wants to check the starting game state
 
-  Scenario: 1. Checking the playing objects
+  Scenario: 1. Checking the game tokens
     Given A new game of Vlotte Geesten
-    Then the following playing objects should be present:
+    Then the following game tokens should be present:
       | color | type   |
       | White | Ghost  |
       | Red   | Chair  |
       | Blue  | Book   |
       | Green | Bottle |
       | Grey  | Mouse  |
-    And the following playing objects should not be present:
+    And the following game tokens should not be present:
       | color | type   |
       | White | Chair  |
       | Blue  | Bottle |
