@@ -20,21 +20,28 @@ public class PlayingCard {
     }
 
     boolean isCorrectSolution(ObjectWithColourAndType tokenToCheck) {
-        if (contains(tokenToCheck)) {
+        if (imageIsExactly(tokenToCheck)) {
             return true;
         }
-        for (CardImage image : cardImages) {
-            if (image.getColor().equals(tokenToCheck.getColor())) {
-                return false;
-            }
-            if (image.getType().equals(tokenToCheck.getType())) {
-                return false;
-            }
+        if (tokenTypeAndColorNotOnImages(tokenToCheck)) {
+            return false;
         }
         return true;
     }
 
-    boolean contains(ObjectWithColourAndType tokenToCheck) {
+    private boolean tokenTypeAndColorNotOnImages(ObjectWithColourAndType tokenToCheck) {
+        for (CardImage image : cardImages) {
+            if (image.getColor().equals(tokenToCheck.getColor())) {
+                return true;
+            }
+            if (image.getType().equals(tokenToCheck.getType())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    boolean imageIsExactly(ObjectWithColourAndType tokenToCheck) {
         for (CardImage image : cardImages) {
             if (image.matches(tokenToCheck)) {
                 return true;
@@ -51,7 +58,7 @@ public class PlayingCard {
         chosenToken = gameToken;
     }
 
-    public boolean isValid() {
+    public boolean colorAndTypeOnlyPresentOnce() {
         CardImage cardImage1 = cardImages.get(0);
         CardImage cardImage2 = cardImages.get(1);
         if (cardImage1.getColor().equals(cardImage2.getColor())) {

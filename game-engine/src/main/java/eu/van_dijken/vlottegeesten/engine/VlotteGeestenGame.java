@@ -27,20 +27,27 @@ public class VlotteGeestenGame {
     }
 
     public boolean isValid(PlayingCard cardToCheck) {
-        if (!cardToCheck.isValid()) {
+        if (!cardToCheck.colorAndTypeOnlyPresentOnce()) {
             return false;
         }
+        if (moreThanOneGameTokenOnCard(cardToCheck)) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean moreThanOneGameTokenOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
         for (GameToken token : tokens) {
-            boolean found = cardToCheck.contains(token);
+            boolean found = cardToCheck.imageIsExactly(token);
             if (found) {
                 if (solutionFound) {
-                    return false;
+                    return true;
                 }
                 solutionFound = true;
             }
         }
-        return true;
+        return false;
     }
 
     public boolean contains(GameToken gameToken) {
