@@ -7,9 +7,7 @@ import eu.van_dijken.vlottegeesten.engine.GameToken;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class PlayingCardStepdefs {
     private PlayingCard card;
@@ -43,5 +41,15 @@ public class PlayingCardStepdefs {
     @Then("^that is not the correct solution$")
     public void that_is_not_the_correct_solution() throws Throwable {
         assertFalse(card.correctTokenChosen());
+    }
+
+    @Then("^that card is not valid$")
+    public void that_card_is_not_valid() throws Throwable {
+        assertFalse(card.isValid());
+    }
+
+    @Then("^that card is valid$")
+    public void that_card_is_valid() throws Throwable {
+        assertTrue(card.isValid());
     }
 }

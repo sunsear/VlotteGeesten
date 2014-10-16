@@ -40,4 +40,16 @@ public class PlayingCard {
     public void chooseToken(GameToken gameToken) {
         chosenToken = gameToken;
     }
+
+    public boolean isValid() {
+        CardImage cardImage1 = cardImages.get(0);
+        CardImage cardImage2 = cardImages.get(1);
+        if (cardImage1.getColor().equals(cardImage2.getColor())){
+            return false;
+        }
+        if (cardImage1.getType().equals(cardImage2.getType())){
+            return false;
+        }
+        return true;
+    }
 }
