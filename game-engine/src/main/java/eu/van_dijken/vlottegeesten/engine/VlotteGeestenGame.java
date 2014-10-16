@@ -1,6 +1,7 @@
 package eu.van_dijken.vlottegeesten.engine;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class VlotteGeestenGame {
@@ -20,12 +21,17 @@ public class VlotteGeestenGame {
 
     private List<PlayingCard> generateCards() {
         List<CardImage> allImages = getAllPossibleCardImages();
-        ArrayList<PlayingCard> cards = generateAllPotentialPlayingCards(allImages);
+        List<PlayingCard> cards = generateAllPotentialPlayingCards(allImages);
         cards = pruneAllNonValidCards(cards);
+        shuffleAllCards(cards);
         return limitTo60Cards(cards);
     }
 
-    private List<PlayingCard> limitTo60Cards(ArrayList<PlayingCard> validCards) {
+    private void shuffleAllCards(List<PlayingCard> cards) {
+        Collections.shuffle(cards);
+    }
+
+    private List<PlayingCard> limitTo60Cards(List<PlayingCard> validCards) {
         List<PlayingCard> limitedTo60 = new ArrayList<PlayingCard>();
         for (int i = 0; i < 60; i++) {
             limitedTo60.add(validCards.get(i));
@@ -33,7 +39,7 @@ public class VlotteGeestenGame {
         return limitedTo60;
     }
 
-    private ArrayList<PlayingCard> pruneAllNonValidCards(ArrayList<PlayingCard> cards) {
+    private ArrayList<PlayingCard> pruneAllNonValidCards(List<PlayingCard> cards) {
         ArrayList<PlayingCard> validCards = new ArrayList<PlayingCard>();
         for (PlayingCard card : cards) {
             if (isValid(card) && !validCards.contains(card)) {
@@ -116,8 +122,8 @@ public class VlotteGeestenGame {
 
     public boolean isPresentOnce(PlayingCard cardToCheck) {
         int foundTimes = 0;
-        for (int i = 0; i < playingCards.size(); i++) {
-            if (playingCards.get(i).equals(cardToCheck)) {
+        for (PlayingCard card : playingCards) {
+            if (card.equals(cardToCheck)) {
                 foundTimes++;
             }
         }

@@ -67,5 +67,9 @@ Feature: Playing Card generation
   Scenario: 11. Checking the validity of the complete deck of cards
     Then the deck should contain 60 valid cards
 
-  Scenario: 11. Checking the uniqueness of the complete deck of cards
+  Scenario: 12. Checking the uniqueness of the complete deck of cards
     Then the deck should contain 60 unique cards
+
+  Scenario: 13. Checking the randomization of the complete deck of cards
+    Given another new game
+    Then the decks of the two games should contain cards in a different order
