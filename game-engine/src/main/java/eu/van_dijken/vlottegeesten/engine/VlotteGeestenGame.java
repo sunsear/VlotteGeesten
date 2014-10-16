@@ -21,7 +21,12 @@ public class VlotteGeestenGame {
     private ArrayList<PlayingCard> generateCards() {
         ArrayList<PlayingCard> cards = new ArrayList<PlayingCard>();
         for (int i = 0; i < 60; i++) {
-            cards.add(new PlayingCard());
+            PlayingCard playingCard = new PlayingCard();
+            List<CardImage> images = new ArrayList<CardImage>();
+            images.add(new CardImage(TokenColor.Blue,TokenType.Book));
+            images.add(new CardImage(TokenColor.Gray,TokenType.Chair));
+            playingCard.addImages(images);
+            cards.add(playingCard);
         }
         return cards;
     }

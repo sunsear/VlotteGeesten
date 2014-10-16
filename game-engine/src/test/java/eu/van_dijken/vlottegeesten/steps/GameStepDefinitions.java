@@ -3,6 +3,7 @@ package eu.van_dijken.vlottegeesten.steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import eu.van_dijken.vlottegeesten.engine.GameToken;
+import eu.van_dijken.vlottegeesten.engine.PlayingCard;
 import eu.van_dijken.vlottegeesten.engine.VlotteGeestenGame;
 
 import java.util.List;
@@ -44,5 +45,12 @@ public class GameStepDefinitions {
     @Then("^that card is valid according to game rules$")
     public void that_card_is_valid_according_to_game_rules() throws Throwable {
         assertTrue(context.getGame().isValid(context.getCard()));
+    }
+
+    @Then("^the deck should contain (\\d+) valid cards$")
+    public void the_deck_should_contain_valid_cards(int arg1) throws Throwable {
+        for (PlayingCard card:context.getGame().availableCards()){
+            assertTrue("Playing Card "+card+" is not valid.",context.getGame().isValid(card));
+        }
     }
 }
