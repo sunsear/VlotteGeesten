@@ -1,6 +1,6 @@
 package eu.van_dijken.vlottegeesten.steps;
 
-import eu.van_dijken.vlottegeesten.cards.PlayingCard;
+import eu.van_dijken.vlottegeesten.engine.PlayingCard;
 import eu.van_dijken.vlottegeesten.engine.VlotteGeestenGame;
 
 public class VlotteGeestenTestContext {

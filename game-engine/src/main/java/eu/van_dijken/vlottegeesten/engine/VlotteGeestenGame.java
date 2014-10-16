@@ -1,7 +1,5 @@
 package eu.van_dijken.vlottegeesten.engine;
 
-import eu.van_dijken.vlottegeesten.cards.PlayingCard;
-
 import java.util.ArrayList;
 import java.util.List;
 

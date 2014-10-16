@@ -3,8 +3,8 @@ package eu.van_dijken.vlottegeesten.steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.vlottegeesten.cards.CardImage;
-import eu.van_dijken.vlottegeesten.cards.PlayingCard;
+import eu.van_dijken.vlottegeesten.engine.CardImage;
+import eu.van_dijken.vlottegeesten.engine.PlayingCard;
 import eu.van_dijken.vlottegeesten.engine.GameToken;
 
 import java.util.List;

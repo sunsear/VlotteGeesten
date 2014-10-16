@@ -1,4 +1,4 @@
-package eu.van_dijken.vlottegeesten.cards;
+package eu.van_dijken.vlottegeesten.engine;
 
 import eu.van_dijken.vlottegeesten.engine.ObjectWithColourAndType;
 

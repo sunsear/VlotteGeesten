@@ -1,7 +1,4 @@
-package eu.van_dijken.vlottegeesten.cards;
-
-import eu.van_dijken.vlottegeesten.engine.GameToken;
-import eu.van_dijken.vlottegeesten.engine.ObjectWithColourAndType;
+package eu.van_dijken.vlottegeesten.engine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +19,7 @@ public class PlayingCard {
         return isCorrectSolution(tokenToCheck);
     }
 
-    //TODO: Move to engine and make package protected
-    public boolean isCorrectSolution(ObjectWithColourAndType tokenToCheck) {
+    boolean isCorrectSolution(ObjectWithColourAndType tokenToCheck) {
         if (contains(tokenToCheck)) {
             return true;
         }
@@ -38,8 +34,7 @@ public class PlayingCard {
         return true;
     }
 
-    //TODO: Move to engine and make package protected
-    public boolean contains(ObjectWithColourAndType tokenToCheck) {
+    boolean contains(ObjectWithColourAndType tokenToCheck) {
         for (CardImage image : cardImages) {
             if (image.matches(tokenToCheck)) {
                 return true;
