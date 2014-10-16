@@ -9,8 +9,8 @@ public class PlayingCard {
     private GameToken chosenToken;
 
     public List<CardImage> images() {
-        cardImages.add(new CardImage("Blue", "Toilet"));
-        cardImages.add(new CardImage("Red", "Violin"));
+        cardImages.add(new CardImage(TokenColor.Blue, TokenType.Book));
+        cardImages.add(new CardImage(TokenColor.Red, TokenType.Bottle));
         return cardImages;
     }
 

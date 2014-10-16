@@ -1,28 +1,27 @@
 package eu.van_dijken.vlottegeesten.engine;
 
 public class ObjectWithColourAndType {
-    //TODO: change into enums!
-    String color;
-    String type;
+    TokenColor color;
+    TokenType type;
 
-    public ObjectWithColourAndType(String type, String color) {
+    public ObjectWithColourAndType(TokenType type, TokenColor color) {
         this.type = type;
         this.color = color;
     }
 
-    public String getColor() {
+    public TokenColor getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(TokenColor color) {
         this.color = color;
     }
 
-    public String getType() {
+    public TokenType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TokenType type) {
         this.type = type;
     }
 

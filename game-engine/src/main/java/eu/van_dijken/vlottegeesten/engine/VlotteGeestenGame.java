@@ -10,11 +10,11 @@ public class VlotteGeestenGame {
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
-        tokens.add(new GameToken("White", "Ghost"));
-        tokens.add(new GameToken("Red", "Chair"));
-        tokens.add(new GameToken("Blue", "Book"));
-        tokens.add(new GameToken("Green", "Bottle"));
-        tokens.add(new GameToken("Gray", "Mouse"));
+        tokens.add(new GameToken(TokenColor.White, TokenType.Ghost));
+        tokens.add(new GameToken(TokenColor.Red, TokenType.Chair));
+        tokens.add(new GameToken(TokenColor.Blue, TokenType.Book));
+        tokens.add(new GameToken(TokenColor.Green, TokenType.Bottle));
+        tokens.add(new GameToken(TokenColor.Gray, TokenType.Mouse));
         playingCards = generateCards();
     }
 

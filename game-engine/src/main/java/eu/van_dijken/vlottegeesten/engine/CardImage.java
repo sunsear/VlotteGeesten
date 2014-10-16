@@ -1,9 +1,7 @@
 package eu.van_dijken.vlottegeesten.engine;
 
-import eu.van_dijken.vlottegeesten.engine.ObjectWithColourAndType;
-
 public class CardImage extends ObjectWithColourAndType{
-    public CardImage(String color, String type){
+    public CardImage(TokenColor color, TokenType type){
         super(type, color);
     }
 }
