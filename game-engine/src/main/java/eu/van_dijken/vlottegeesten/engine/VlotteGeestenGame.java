@@ -30,16 +30,33 @@ public class VlotteGeestenGame {
         if (!cardToCheck.colorAndTypeOnlyPresentOnce()) {
             return false;
         }
-        if (moreThanOneGameTokenOnCard(cardToCheck)) {
+        if (exactlyOneGameTokenOnCard(cardToCheck)) {
+            return true;
+        }
+        if (moreThanOneGameTokenMatchesBecauseNotShownOnCard(cardToCheck)) {
             return false;
         }
         return true;
     }
 
-    private boolean moreThanOneGameTokenOnCard(PlayingCard cardToCheck) {
+    private boolean exactlyOneGameTokenOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
         for (GameToken token : tokens) {
             boolean found = cardToCheck.imageIsExactly(token);
+            if (found) {
+                if (solutionFound) {
+                    return false;
+                }
+                solutionFound = true;
+            }
+        }
+        return solutionFound;
+    }
+
+    private boolean moreThanOneGameTokenMatchesBecauseNotShownOnCard(PlayingCard cardToCheck) {
+        boolean solutionFound = false;
+        for (GameToken token : tokens) {
+            boolean found = !cardToCheck.tokenTypeOrColorOnAnImage(token);
             if (found) {
                 if (solutionFound) {
                     return true;

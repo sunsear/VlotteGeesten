@@ -41,3 +41,25 @@ Feature: Playing Card generation
       | Gray  | Mouse |
       | Red   | Chair |
     Then that card is not valid according to game rules
+
+  Scenario: 10. Card is valid only if there is exactly one solution
+    Given a playing card with tokens displayed:
+      | color | type   |
+      | Green | Mouse  |
+      | Gray  | Bottle |
+    Then that card is not valid according to game rules
+    Given a playing card with tokens displayed:
+      | color | type   |
+      | Gray  | Bottle |
+      | Red   | Mouse  |
+    Then that card is not valid according to game rules
+    Given a playing card with tokens displayed:
+      | color | type   |
+      | Gray  | Bottle |
+      | Red   | Book   |
+    Then that card is valid according to game rules
+    Given a playing card with tokens displayed:
+      | color | type  |
+      | Gray  | Mouse |
+      | Red   | Book  |
+    Then that card is valid according to game rules

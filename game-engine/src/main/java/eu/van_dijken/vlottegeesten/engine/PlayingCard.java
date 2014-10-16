@@ -23,13 +23,13 @@ public class PlayingCard {
         if (imageIsExactly(tokenToCheck)) {
             return true;
         }
-        if (tokenTypeAndColorNotOnImages(tokenToCheck)) {
+        if (tokenTypeOrColorOnAnImage(tokenToCheck)) {
             return false;
         }
         return true;
     }
 
-    private boolean tokenTypeAndColorNotOnImages(ObjectWithColourAndType tokenToCheck) {
+    boolean tokenTypeOrColorOnAnImage(ObjectWithColourAndType tokenToCheck) {
         for (CardImage image : cardImages) {
             if (image.getColor().equals(tokenToCheck.getColor())) {
                 return true;
