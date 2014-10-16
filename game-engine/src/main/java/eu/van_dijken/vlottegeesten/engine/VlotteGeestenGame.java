@@ -23,8 +23,8 @@ public class VlotteGeestenGame {
         for (int i = 0; i < 60; i++) {
             PlayingCard playingCard = new PlayingCard();
             List<CardImage> images = new ArrayList<CardImage>();
-            images.add(new CardImage(TokenColor.Blue,TokenType.Book));
-            images.add(new CardImage(TokenColor.Gray,TokenType.Chair));
+            images.add(new CardImage(TokenColor.Blue, TokenType.Book));
+            images.add(new CardImage(TokenColor.Gray, TokenType.Chair));
             playingCard.addImages(images);
             cards.add(playingCard);
         }
@@ -78,5 +78,16 @@ public class VlotteGeestenGame {
 
     public List<PlayingCard> availableCards() {
         return playingCards;
+    }
+
+    public boolean isPresentOnce(PlayingCard cardToCheck) {
+        int foundTimes = 0;
+        for (int i=0;i<playingCards.size();i++) {
+            if (playingCards.get(i).equals(cardToCheck)) {
+                foundTimes++;
+                System.out.println("Found the card:"+foundTimes+":"+i);
+            }
+        }
+        return foundTimes == 1;
     }
 }

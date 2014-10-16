@@ -15,7 +15,7 @@ public class GameStepDefinitions {
 
     @Given("^a new game of Vlotte Geesten$")
     public void a_new_game_of_Vlotte_Geesten() {
-        context.setGame( new VlotteGeestenGame());
+        context.setGame(new VlotteGeestenGame());
     }
 
     @Then("^the following game tokens should be present:$")
@@ -49,8 +49,16 @@ public class GameStepDefinitions {
 
     @Then("^the deck should contain (\\d+) valid cards$")
     public void the_deck_should_contain_valid_cards(int arg1) throws Throwable {
-        for (PlayingCard card:context.getGame().availableCards()){
-            assertTrue("Playing Card "+card+" is not valid.",context.getGame().isValid(card));
+        for (PlayingCard card : context.getGame().availableCards()) {
+            assertTrue("Playing Card " + card + " is not valid.", context.getGame().isValid(card));
+        }
+    }
+
+    @Then("^the deck should contain (\\d+) unique cards$")
+    public void the_deck_should_contain_unique_cards(int arg1) throws Throwable {
+        for (PlayingCard card : context.getGame().availableCards()) {
+            assertTrue("Playing Card " + card + " is present in the deck more than once.",
+                    context.getGame().isPresentOnce(card));
         }
     }
 }
