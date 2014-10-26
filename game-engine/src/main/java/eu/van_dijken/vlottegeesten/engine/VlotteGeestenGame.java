@@ -7,7 +7,8 @@ import java.util.List;
 public class VlotteGeestenGame {
 
     private final List<GameToken> tokens;
-    private List<PlayingCard> playingCards;
+    private final List<PlayingCard> playingCards;
+    private final List<String> players = new ArrayList<String>();
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
@@ -78,10 +79,7 @@ public class VlotteGeestenGame {
         if (exactlyOneGameTokenOnCard(cardToCheck)) {
             return true;
         }
-        if (moreThanOneGameTokenMatchesBecauseNotShownOnCard(cardToCheck)) {
-            return false;
-        }
-        return true;
+        return !moreThanOneGameTokenMatchesBecauseNotShownOnCard(cardToCheck);
     }
 
     private boolean exactlyOneGameTokenOnCard(PlayingCard cardToCheck) {
@@ -128,5 +126,18 @@ public class VlotteGeestenGame {
             }
         }
         return foundTimes == 1;
+    }
+
+    public void addPlayer(String name) {
+        players.add(name);
+    }
+
+    public void start() throws NotEnoughPlayersException, TooManyPlayersException {
+        if (players.size()<2) {
+            throw new NotEnoughPlayersException();
+        }
+        if (players.size()>8) {
+            throw new TooManyPlayersException();
+        }
     }
 }

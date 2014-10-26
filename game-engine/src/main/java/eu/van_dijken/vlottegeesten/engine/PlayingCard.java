@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PlayingCard {
 
-    private List<CardImage> cardImages = new ArrayList<CardImage>();
+    private final List<CardImage> cardImages = new ArrayList<CardImage>();
     private GameToken chosenToken;
 
     public List<CardImage> images() {
@@ -31,10 +31,7 @@ public class PlayingCard {
         if (imageIsExactly(tokenToCheck)) {
             return true;
         }
-        if (tokenTypeOrColorOnAnImage(tokenToCheck)) {
-            return false;
-        }
-        return true;
+        return !tokenTypeOrColorOnAnImage(tokenToCheck);
     }
 
     boolean tokenTypeOrColorOnAnImage(ObjectWithColourAndType tokenToCheck) {
