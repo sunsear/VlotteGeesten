@@ -8,7 +8,8 @@ public class VlotteGeestenGame {
 
     private final List<GameToken> tokens;
     private final List<PlayingCard> playingCards;
-    private final List<String> players = new ArrayList<String>();
+    private final List<Player> players = new ArrayList<Player>();
+    private PlayingCard cardInRound;
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
@@ -129,7 +130,11 @@ public class VlotteGeestenGame {
     }
 
     public void addPlayer(String name) {
-        players.add(name);
+        players.add(new Player(name));
+    }
+
+    public Player getPlayer(int playerIndex){
+        return players.get(playerIndex);
     }
 
     public void start() throws NotEnoughPlayersException, TooManyPlayersException {
@@ -139,5 +144,14 @@ public class VlotteGeestenGame {
         if (players.size()>8) {
             throw new TooManyPlayersException();
         }
+    }
+
+    public void round() {
+        cardInRound = availableCards().get(0);
+        availableCards().remove(0);
+    }
+
+    public void provideSolution(int playerIndex, GameToken gameToken) {
+        players.get(playerIndex).addToWonCards(cardInRound);
     }
 }

@@ -1,7 +1,9 @@
 package eu.van_dijken.vlottegeesten.steps;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import eu.van_dijken.vlottegeesten.engine.*;
 
 import java.util.List;
@@ -11,6 +13,7 @@ import static org.junit.Assert.*;
 public class GameStepDefinitions {
     private final VlotteGeestenTestContext context = VlotteGeestenTestContext.getInstance();
     VlotteGeestenGame anotherGame;
+    private PlayingCard shownCard;
 
     @Given("^a new game of Vlotte Geesten$")
     public void a_new_game_of_Vlotte_Geesten() {
@@ -109,5 +112,36 @@ public class GameStepDefinitions {
             return;
         }
         fail("Number of players should not be too many as it is 1 more than maxNumberOfPlayers: " + maxNumberOfPlayers);
+    }
+
+    @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\"$")
+    public void a_new_round_of_play_showing_a_card_with_a(TokenColor colour, TokenType type) {
+        context.getGame().availableCards().clear();
+        shownCard = new PlayingCard();
+        shownCard.addImages(new CardImage(colour, type));
+        context.getGame().availableCards().add(shownCard);
+        context.getGame().round();
+    }
+
+    @When("^a player chooses the \"([^\" ]*) ([^\"]*)\"$")
+    public void a_player_chooses_the(TokenColor colour, TokenType type) throws Throwable {
+        context.getGame().provideSolution(0, new GameToken(colour,type));
+    }
+
+    @Then("^that player wins the shown card$")
+    public void that_player_wins_the_shown_card() throws Throwable {
+        assertEquals(shownCard, context.getGame().getPlayer(0).getWonCards().iterator().next());
+    }
+
+    @And("^(\\d+) players in the game$")
+    public void players_in_the_game(int numOfPlayers) throws Throwable {
+        for(int i=1;i<=numOfPlayers;i++){
+            context.getGame().addPlayer("Player "+i);
+        }
+    }
+
+    @And("^the shown card is no longer in the deck$")
+    public void the_shown_card_is_no_longer_in_the_deck() throws Throwable {
+        assertFalse(context.getGame().availableCards().contains(shownCard));
     }
 }
