@@ -9,7 +9,7 @@ Feature: Game Rounds
     And 2 players in the game
 
   Scenario: Player chooses the correct solution
-    Given a new round of play showing a card with a "Gray Mouse"
+    Given a new round of play showing a card with a "Gray Mouse" and a "Green Book"
     When player 1 chooses the "Gray Mouse"
     And the round finishes
     Then player 1 has won the shown card

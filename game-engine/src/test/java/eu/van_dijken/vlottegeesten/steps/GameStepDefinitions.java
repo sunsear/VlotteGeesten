@@ -116,21 +116,24 @@ public class GameStepDefinitions {
 
     @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\"$")
     public void a_new_round_of_play_showing_a_card_with_a(TokenColor colour, TokenType type) {
-        context.getGame().availableCards().clear();
         shownCard = new PlayingCard();
         shownCard.addImages(new CardImage(colour, type));
-        context.getGame().availableCards().add(shownCard);
+        putCardFirstInDeck();
         context.getGame().round();
+    }
+
+    private void putCardFirstInDeck() {
+        context.getGame().availableCards().remove(shownCard);
+        context.getGame().availableCards().add(0, shownCard);
     }
 
     @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\" and a \"([^\" ]*) ([^\"]*)\"$")
     public void a_new_round_of_play_showing_a_card_with_a_and_a(TokenColor colour, TokenType type, TokenColor colour2,
                                                                 TokenType type2) {
-        context.getGame().availableCards().clear();
         shownCard = new PlayingCard();
         shownCard.addImages(new CardImage(colour, type));
         shownCard.addImages(new CardImage(colour2, type2));
-        context.getGame().availableCards().add(shownCard);
+        putCardFirstInDeck();
         context.getGame().round();
     }
 
@@ -159,8 +162,8 @@ public class GameStepDefinitions {
 
     @Then("^player (\\d+) has won (\\d+) cards$")
     public void player_has_won_card(int playerNumber, int numberOfCardsWon) throws Throwable {
-        if (numberOfCardsWon > 0) {
-            context.getGame().getPlayer(playerNumber - 1).addToWonCards(new PlayingCard());
+        for (int i = 0; i < numberOfCardsWon; i++) {
+            context.getGame().getPlayer(playerNumber - 1).addToWonCards(context.getGame().availableCards().remove(0));
         }
     }
 
@@ -184,5 +187,20 @@ public class GameStepDefinitions {
     @When("^the round finishes$")
     public void the_round_finishes() throws Throwable {
         context.getGame().finishRound();
+    }
+
+    @When("^the game finishes$")
+    public void the_game_finishes() throws Throwable {
+        context.getGame().finish();
+    }
+
+    @Then("^player (\\d+) has won the game$")
+    public void player_has_won_the_game(int playerNumber) throws Throwable {
+        assertEquals(context.getGame().getPlayer(playerNumber - 1), context.getGame().getWinner());
+    }
+
+    @Then("^there is no winner$")
+    public void there_is_no_winner() throws Throwable {
+        assertNull(context.getGame().getWinner());
     }
 }

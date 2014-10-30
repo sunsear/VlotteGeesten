@@ -10,6 +10,7 @@ public class VlotteGeestenGame {
     private final List<PlayingCard> playingCards;
     private final List<Player> players = new ArrayList<Player>();
     private GameRound round;
+    private Player winner;
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
@@ -147,7 +148,7 @@ public class VlotteGeestenGame {
     }
 
     public void round() {
-        round = new GameRound(availableCards().remove(0));
+        round = new GameRound(playingCards.remove(0));
     }
 
     public void provideSolution(int playerIndex, GameToken gameToken) {
@@ -158,9 +159,45 @@ public class VlotteGeestenGame {
         Player winner = round.getWinner();
         List<Player> losers = round.getLosers();
         winner.addToWonCards(round.getShownCard());
-        for (Player loser: losers){
+        for (Player loser : losers) {
             loser.giveCardTo(winner);
         }
     }
 
+    public void finish() {
+        winner = findWinner();
+    }
+
+    private Player findWinner() {
+        int highestNumberOfCards = findHighestNumberOfWonCards();
+        List<Player> winners = findPlayersWithHighestNumber(highestNumberOfCards);
+        if (winners.size()==1){
+            return winners.get(0);
+        }
+        return null;
+    }
+
+    private List<Player> findPlayersWithHighestNumber(int highestNumberOfCards) {
+        List<Player> winners = new ArrayList<Player>();
+        for (Player player : players) {
+            if (player.getWonCards().size() == highestNumberOfCards) {
+                    winners.add(player);
+            }
+        }
+        return winners;
+    }
+
+    private int findHighestNumberOfWonCards() {
+        int highestNumberOfCards = 0;
+        for (Player player : players) {
+            if (player.getWonCards().size() > highestNumberOfCards) {
+                highestNumberOfCards = player.getWonCards().size();
+            }
+        }
+        return highestNumberOfCards;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
 }
