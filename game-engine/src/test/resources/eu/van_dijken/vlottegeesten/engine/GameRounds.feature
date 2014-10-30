@@ -10,7 +10,18 @@ Feature: Game Rounds
 
   Scenario: Player chooses the correct solution
     Given a new round of play showing a card with a "Gray Mouse"
-    When a player chooses the "Gray Mouse"
-    Then that player wins the shown card
+    When player 1 chooses the "Gray Mouse"
+    And the round finishes
+    Then player 1 has won the shown card
     And the shown card is no longer in the deck
 
+  Scenario: Player 1 chooses an incorrect solution and has to give a card to winning player 2.
+    Given a new round of play showing a card with a "Gray Mouse" and a "Green Book"
+    And player 1 has won 1 cards
+    When player 1 chooses the "Green Bottle"
+    And player 2 chooses the "Gray Mouse"
+    And the round finishes
+    Then player 2 has won the shown card
+    And the shown card is no longer in the deck
+    And player 1 has to give a card away, reducing his total of won cards to 0
+    And player 2 has received an extra card, making his total of won cards 2

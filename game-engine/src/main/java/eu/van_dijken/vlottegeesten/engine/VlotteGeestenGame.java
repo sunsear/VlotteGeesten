@@ -9,7 +9,7 @@ public class VlotteGeestenGame {
     private final List<GameToken> tokens;
     private final List<PlayingCard> playingCards;
     private final List<Player> players = new ArrayList<Player>();
-    private PlayingCard cardInRound;
+    private GameRound round;
 
     public VlotteGeestenGame() {
         tokens = new ArrayList<GameToken>();
@@ -133,25 +133,34 @@ public class VlotteGeestenGame {
         players.add(new Player(name));
     }
 
-    public Player getPlayer(int playerIndex){
+    public Player getPlayer(int playerIndex) {
         return players.get(playerIndex);
     }
 
     public void start() throws NotEnoughPlayersException, TooManyPlayersException {
-        if (players.size()<2) {
+        if (players.size() < 2) {
             throw new NotEnoughPlayersException();
         }
-        if (players.size()>8) {
+        if (players.size() > 8) {
             throw new TooManyPlayersException();
         }
     }
 
     public void round() {
-        cardInRound = availableCards().get(0);
-        availableCards().remove(0);
+        round = new GameRound(availableCards().remove(0));
     }
 
     public void provideSolution(int playerIndex, GameToken gameToken) {
-        players.get(playerIndex).addToWonCards(cardInRound);
+        round.provideSolution(players.get(playerIndex), gameToken);
     }
+
+    public void finishRound() {
+        Player winner = round.getWinner();
+        List<Player> losers = round.getLosers();
+        winner.addToWonCards(round.getShownCard());
+        for (Player loser: losers){
+            loser.giveCardTo(winner);
+        }
+    }
+
 }
