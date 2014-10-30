@@ -1,10 +1,10 @@
-package eu.van_dijken.vlottegeesten.steps;
+package eu.van_dijken.geistesblitz.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.vlottegeesten.engine.*;
+import eu.van_dijken.geistesblitz.engine.*;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public class GameStepDefinitions {
     VlotteGeestenGame anotherGame;
     private PlayingCard shownCard;
 
-    @Given("^a new game of Vlotte Geesten$")
+    @Given("^a new game of GeistesBlitz$")
     public void a_new_game_of_Vlotte_Geesten() {
         context.setGame(new VlotteGeestenGame());
     }

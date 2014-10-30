@@ -1,7 +1,7 @@
-package eu.van_dijken.vlottegeesten.steps;
+package eu.van_dijken.geistesblitz.steps;
 
-import eu.van_dijken.vlottegeesten.engine.PlayingCard;
-import eu.van_dijken.vlottegeesten.engine.VlotteGeestenGame;
+import eu.van_dijken.geistesblitz.engine.PlayingCard;
+import eu.van_dijken.geistesblitz.engine.VlotteGeestenGame;
 
 public class VlotteGeestenTestContext {
     private static VlotteGeestenTestContext instance;

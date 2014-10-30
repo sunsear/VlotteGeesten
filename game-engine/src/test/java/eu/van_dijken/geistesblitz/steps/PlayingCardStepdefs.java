@@ -1,11 +1,11 @@
-package eu.van_dijken.vlottegeesten.steps;
+package eu.van_dijken.geistesblitz.steps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.vlottegeesten.engine.CardImage;
-import eu.van_dijken.vlottegeesten.engine.Item;
-import eu.van_dijken.vlottegeesten.engine.PlayingCard;
+import eu.van_dijken.geistesblitz.engine.CardImage;
+import eu.van_dijken.geistesblitz.engine.Item;
+import eu.van_dijken.geistesblitz.engine.PlayingCard;
 
 import java.util.List;
 

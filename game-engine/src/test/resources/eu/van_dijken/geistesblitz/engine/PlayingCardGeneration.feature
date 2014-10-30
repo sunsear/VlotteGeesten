@@ -4,7 +4,7 @@ Feature: Playing Card generation
   wants to generate a set of valid cards
 
   Background: Setting up a new game
-    Given a new game of Vlotte Geesten
+    Given a new game of GeistesBlitz
 
   Scenario: 7. Card is valid only if a color is present at most once
     Given a playing card with items displayed:

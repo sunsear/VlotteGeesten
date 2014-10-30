@@ -3,7 +3,7 @@ Feature: Winning Conditions
   there is more than 1 player with the highest number of cards, there is no winner.
 
   Background: Setting up a 3 player game
-    Given a new game of Vlotte Geesten
+    Given a new game of GeistesBlitz
     And 3 players in the game
 
   Scenario: Player with the most cards wins.

@@ -5,7 +5,7 @@ Feature: Game Rounds
   player may only provide a single solution.
 
   Background: Setting up a 2 player game
-    Given a new game of Vlotte Geesten
+    Given a new game of GeistesBlitz
     And 2 players in the game
 
   Scenario: Player chooses the correct solution

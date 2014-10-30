@@ -1,4 +1,4 @@
-package eu.van_dijken.vlottegeesten.engine;
+package eu.van_dijken.geistesblitz.engine;
 
 import java.util.ArrayList;
 import java.util.Collections;
