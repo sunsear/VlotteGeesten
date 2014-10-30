@@ -6,19 +6,19 @@ import java.util.List;
 
 public class VlotteGeestenGame {
 
-    private final List<GameToken> tokens;
+    private final List<Item> items;
     private final List<PlayingCard> playingCards;
     private final List<Player> players = new ArrayList<Player>();
     private GameRound round;
     private Player winner;
 
     public VlotteGeestenGame() {
-        tokens = new ArrayList<GameToken>();
-        tokens.add(new GameToken(TokenColor.White, TokenType.Ghost));
-        tokens.add(new GameToken(TokenColor.Red, TokenType.Chair));
-        tokens.add(new GameToken(TokenColor.Blue, TokenType.Book));
-        tokens.add(new GameToken(TokenColor.Green, TokenType.Bottle));
-        tokens.add(new GameToken(TokenColor.Gray, TokenType.Mouse));
+        items = new ArrayList<Item>();
+        items.add(new Item(ItemColor.White, ItemType.Ghost));
+        items.add(new Item(ItemColor.Red, ItemType.Chair));
+        items.add(new Item(ItemColor.Blue, ItemType.Book));
+        items.add(new Item(ItemColor.Green, ItemType.Bottle));
+        items.add(new Item(ItemColor.Gray, ItemType.Mouse));
         playingCards = generateCards();
     }
 
@@ -66,8 +66,8 @@ public class VlotteGeestenGame {
 
     private List<CardImage> getAllPossibleCardImages() {
         List<CardImage> allImages = new ArrayList<CardImage>();
-        for (TokenType type : TokenType.values()) {
-            for (TokenColor color : TokenColor.values()) {
+        for (ItemType type : ItemType.values()) {
+            for (ItemColor color : ItemColor.values()) {
                 allImages.add(new CardImage(color, type));
             }
         }
@@ -78,16 +78,16 @@ public class VlotteGeestenGame {
         if (!cardToCheck.colorAndTypeOnlyPresentOnce()) {
             return false;
         }
-        if (exactlyOneGameTokenOnCard(cardToCheck)) {
+        if (exactlyOneItemOnCard(cardToCheck)) {
             return true;
         }
-        return !moreThanOneGameTokenMatchesBecauseNotShownOnCard(cardToCheck);
+        return !moreThanOneItemMatchesBecauseNotShownOnCard(cardToCheck);
     }
 
-    private boolean exactlyOneGameTokenOnCard(PlayingCard cardToCheck) {
+    private boolean exactlyOneItemOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
-        for (GameToken token : tokens) {
-            boolean found = cardToCheck.imageIsExactly(token);
+        for (Item item : items) {
+            boolean found = cardToCheck.imageIsExactly(item);
             if (found) {
                 if (solutionFound) {
                     return false;
@@ -98,10 +98,10 @@ public class VlotteGeestenGame {
         return solutionFound;
     }
 
-    private boolean moreThanOneGameTokenMatchesBecauseNotShownOnCard(PlayingCard cardToCheck) {
+    private boolean moreThanOneItemMatchesBecauseNotShownOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
-        for (GameToken token : tokens) {
-            boolean found = !cardToCheck.tokenTypeOrColorOnAnImage(token);
+        for (Item item : items) {
+            boolean found = !cardToCheck.itemTypeOrColorOnAnImage(item);
             if (found) {
                 if (solutionFound) {
                     return true;
@@ -112,8 +112,8 @@ public class VlotteGeestenGame {
         return false;
     }
 
-    public boolean contains(GameToken gameToken) {
-        return tokens.contains(gameToken);
+    public boolean contains(Item item) {
+        return items.contains(item);
     }
 
     public List<PlayingCard> availableCards() {
@@ -151,8 +151,8 @@ public class VlotteGeestenGame {
         round = new GameRound(playingCards.remove(0));
     }
 
-    public void provideSolution(int playerIndex, GameToken gameToken) {
-        round.provideSolution(players.get(playerIndex), gameToken);
+    public void provideSolution(int playerIndex, Item item) {
+        round.provideSolution(players.get(playerIndex), item);
     }
 
     public void finishRound() {

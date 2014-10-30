@@ -1,6 +1,6 @@
 package eu.van_dijken.vlottegeesten.engine;
 
-public enum TokenColor {
+public enum ItemColor {
     White,
     Red,
     Blue,

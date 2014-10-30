@@ -20,17 +20,17 @@ public class GameStepDefinitions {
         context.setGame(new VlotteGeestenGame());
     }
 
-    @Then("^the following game tokens should be present:$")
-    public void the_following_game_tokens_should_be_present(List<GameToken> entries) throws Throwable {
-        for (GameToken gameToken : entries) {
-            assertTrue(context.getGame().contains(gameToken));
+    @Then("^the following items should be present:$")
+    public void the_following_game_items_should_be_present(List<Item> entries) throws Throwable {
+        for (Item item : entries) {
+            assertTrue(context.getGame().contains(item));
         }
     }
 
-    @Then("^the following game tokens should not be present:$")
-    public void the_following_game_tokens_should_not_be_present(List<GameToken> entries) throws Throwable {
-        for (GameToken gameToken : entries) {
-            assertFalse(context.getGame().contains(gameToken));
+    @Then("^the following items should not be present:$")
+    public void the_following_game_items_should_not_be_present(List<Item> entries) throws Throwable {
+        for (Item item : entries) {
+            assertFalse(context.getGame().contains(item));
         }
     }
 
@@ -115,7 +115,7 @@ public class GameStepDefinitions {
     }
 
     @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\"$")
-    public void a_new_round_of_play_showing_a_card_with_a(TokenColor colour, TokenType type) {
+    public void a_new_round_of_play_showing_a_card_with_a(ItemColor colour, ItemType type) {
         shownCard = new PlayingCard();
         shownCard.addImages(new CardImage(colour, type));
         putCardFirstInDeck();
@@ -128,8 +128,8 @@ public class GameStepDefinitions {
     }
 
     @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\" and a \"([^\" ]*) ([^\"]*)\"$")
-    public void a_new_round_of_play_showing_a_card_with_a_and_a(TokenColor colour, TokenType type, TokenColor colour2,
-                                                                TokenType type2) {
+    public void a_new_round_of_play_showing_a_card_with_a_and_a(ItemColor colour, ItemType type, ItemColor colour2,
+                                                                ItemType type2) {
         shownCard = new PlayingCard();
         shownCard.addImages(new CardImage(colour, type));
         shownCard.addImages(new CardImage(colour2, type2));
@@ -138,8 +138,8 @@ public class GameStepDefinitions {
     }
 
     @When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
-    public void player_chooses_the(int playerNumber, TokenColor colour, TokenType type) throws Throwable {
-        context.getGame().provideSolution(playerNumber - 1, new GameToken(colour, type));
+    public void player_chooses_the(int playerNumber, ItemColor colour, ItemType type) throws Throwable {
+        context.getGame().provideSolution(playerNumber - 1, new Item(colour, type));
     }
 
     @Then("^player (\\d+) has won the shown card$")

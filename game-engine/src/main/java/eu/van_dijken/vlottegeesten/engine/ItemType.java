@@ -1,6 +1,6 @@
 package eu.van_dijken.vlottegeesten.engine;
 
-public enum TokenType {
+public enum ItemType {
     Ghost,
     Chair,
     Bottle,

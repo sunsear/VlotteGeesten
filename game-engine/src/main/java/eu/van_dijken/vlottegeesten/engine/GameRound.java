@@ -18,8 +18,8 @@ public class GameRound {
         return shownCard;
     }
 
-    public void provideSolution(Player player, GameToken gameToken) {
-        solutions.add(new Solution(player, gameToken));
+    public void provideSolution(Player player, Item item) {
+        solutions.add(new Solution(player, item));
     }
 
     public List<Solution> getSolutions() {
@@ -45,7 +45,7 @@ public class GameRound {
     void determineRoundWinnerAndLosers() {
         losers = new ArrayList<Player>();
         for (Solution solution : getSolutions()) {
-            if (getShownCard().isCorrectSolution(solution.getGameToken()) && winner == null) {
+            if (getShownCard().isCorrectSolution(solution.getItem()) && winner == null) {
                 winner = solution.getPlayer();
             } else {
                 losers.add(solution.getPlayer());
@@ -55,15 +55,15 @@ public class GameRound {
 
     class Solution {
         private final Player player;
-        private final GameToken gameToken;
+        private final Item item;
 
-        public Solution(Player player, GameToken gameToken) {
+        public Solution(Player player, Item item) {
             this.player = player;
-            this.gameToken = gameToken;
+            this.item = item;
         }
 
-        public GameToken getGameToken() {
-            return gameToken;
+        public Item getItem() {
+            return item;
         }
 
         public Player getPlayer() {

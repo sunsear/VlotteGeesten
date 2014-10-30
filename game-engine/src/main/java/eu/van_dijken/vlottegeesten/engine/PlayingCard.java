@@ -7,17 +7,17 @@ import java.util.List;
 public class PlayingCard {
 
     private final List<CardImage> cardImages = new ArrayList<CardImage>();
-    private GameToken chosenToken;
+    private Item chosenItem;
 
     public List<CardImage> images() {
-        cardImages.add(new CardImage(TokenColor.Blue, TokenType.Book));
-        cardImages.add(new CardImage(TokenColor.Red, TokenType.Bottle));
+        cardImages.add(new CardImage(ItemColor.Blue, ItemType.Book));
+        cardImages.add(new CardImage(ItemColor.Red, ItemType.Bottle));
         return cardImages;
     }
 
-    public boolean correctTokenChosen() {
-        GameToken tokenToCheck = chosenToken;
-        return isCorrectSolution(tokenToCheck);
+    public boolean correctItemChosen() {
+        Item itemToCheck = chosenItem;
+        return isCorrectSolution(itemToCheck);
     }
 
     @Override
@@ -27,28 +27,28 @@ public class PlayingCard {
                 '}';
     }
 
-    boolean isCorrectSolution(ObjectWithColourAndType tokenToCheck) {
-        if (imageIsExactly(tokenToCheck)) {
+    boolean isCorrectSolution(ObjectWithColourAndType itemToCheck) {
+        if (imageIsExactly(itemToCheck)) {
             return true;
         }
-        return !tokenTypeOrColorOnAnImage(tokenToCheck);
+        return !itemTypeOrColorOnAnImage(itemToCheck);
     }
 
-    boolean tokenTypeOrColorOnAnImage(ObjectWithColourAndType tokenToCheck) {
+    boolean itemTypeOrColorOnAnImage(ObjectWithColourAndType itemToCheck) {
         for (CardImage image : cardImages) {
-            if (image.getColor().equals(tokenToCheck.getColor())) {
+            if (image.getColor().equals(itemToCheck.getColor())) {
                 return true;
             }
-            if (image.getType().equals(tokenToCheck.getType())) {
+            if (image.getType().equals(itemToCheck.getType())) {
                 return true;
             }
         }
         return false;
     }
 
-    boolean imageIsExactly(ObjectWithColourAndType tokenToCheck) {
+    boolean imageIsExactly(ObjectWithColourAndType itemToCheck) {
         for (CardImage image : cardImages) {
-            if (image.matches(tokenToCheck)) {
+            if (image.matches(itemToCheck)) {
                 return true;
             }
         }
@@ -63,8 +63,8 @@ public class PlayingCard {
         cardImages.addAll(Arrays.asList(imagesDisplayed));
     }
 
-    public void chooseToken(GameToken gameToken) {
-        chosenToken = gameToken;
+    public void chooseItem(Item item) {
+        chosenItem = item;
     }
 
     public boolean colorAndTypeOnlyPresentOnce() {
