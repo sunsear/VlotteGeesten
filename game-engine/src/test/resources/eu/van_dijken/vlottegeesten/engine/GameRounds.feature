@@ -28,6 +28,7 @@ Feature: Game Rounds
 
   Scenario: Player 1 chooses an incorrect solution but has no cards to give away.
     Given a new round of play showing a card with a "Gray Mouse" and a "Green Book"
+    And player 1 has won 0 cards
     When player 1 chooses the "Green Bottle"
     And player 2 chooses the "Gray Mouse"
     And the round finishes

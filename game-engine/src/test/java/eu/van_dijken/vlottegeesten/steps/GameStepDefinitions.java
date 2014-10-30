@@ -159,7 +159,9 @@ public class GameStepDefinitions {
 
     @Then("^player (\\d+) has won (\\d+) cards$")
     public void player_has_won_card(int playerNumber, int numberOfCardsWon) throws Throwable {
-        context.getGame().getPlayer(playerNumber - 1).addToWonCards(new PlayingCard());
+        if (numberOfCardsWon > 0) {
+            context.getGame().getPlayer(playerNumber - 1).addToWonCards(new PlayingCard());
+        }
     }
 
     @And("^player (\\d+) has to give a card away, reducing his total of won cards to (\\d+)$")
