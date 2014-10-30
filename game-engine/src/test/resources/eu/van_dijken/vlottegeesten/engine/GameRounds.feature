@@ -25,3 +25,11 @@ Feature: Game Rounds
     And the shown card is no longer in the deck
     And player 1 has to give a card away, reducing his total of won cards to 0
     And player 2 has received an extra card, making his total of won cards 2
+
+  Scenario: Player 1 chooses an incorrect solution but has no cards to give away.
+    Given a new round of play showing a card with a "Gray Mouse" and a "Green Book"
+    When player 1 chooses the "Green Bottle"
+    And player 2 chooses the "Gray Mouse"
+    And the round finishes
+    Then player 2 has won the shown card
+    And the shown card is no longer in the deck
