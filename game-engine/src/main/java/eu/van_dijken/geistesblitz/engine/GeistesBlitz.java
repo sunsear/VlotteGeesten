@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class VlotteGeestenGame {
+public class GeistesBlitz {
 
     private final List<Item> items;
     private final List<PlayingCard> playingCards;
@@ -12,7 +12,7 @@ public class VlotteGeestenGame {
     private GameRound round;
     private Player winner;
 
-    public VlotteGeestenGame() {
+    public GeistesBlitz() {
         items = new ArrayList<Item>();
         items.add(new Item(ItemColor.White, ItemType.Ghost));
         items.add(new Item(ItemColor.Red, ItemType.Chair));

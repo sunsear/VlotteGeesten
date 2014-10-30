@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class PlayingCardStepdefs {
-    private final VlotteGeestenTestContext context = VlotteGeestenTestContext.getInstance();
+    private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();
 
     @Given("^A random Playing Card$")
     public void A_random_Playing_Card() throws Throwable {

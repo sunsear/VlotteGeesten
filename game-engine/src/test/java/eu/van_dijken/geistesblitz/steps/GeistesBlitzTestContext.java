@@ -1,25 +1,25 @@
 package eu.van_dijken.geistesblitz.steps;
 
+import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
-import eu.van_dijken.geistesblitz.engine.VlotteGeestenGame;
 
-public class VlotteGeestenTestContext {
-    private static VlotteGeestenTestContext instance;
+public class GeistesBlitzTestContext {
+    private static GeistesBlitzTestContext instance;
     private PlayingCard card;
-    private VlotteGeestenGame game;
+    private GeistesBlitz game;
 
-    public static VlotteGeestenTestContext getInstance() {
+    public static GeistesBlitzTestContext getInstance() {
         if (instance==null){
-            instance = new VlotteGeestenTestContext();
+            instance = new GeistesBlitzTestContext();
         }
         return instance;
     }
 
-    public VlotteGeestenGame getGame() {
+    public GeistesBlitz getGame() {
         return game;
     }
 
-    public void setGame(VlotteGeestenGame game) {
+    public void setGame(GeistesBlitz game) {
         this.game = game;
     }
 

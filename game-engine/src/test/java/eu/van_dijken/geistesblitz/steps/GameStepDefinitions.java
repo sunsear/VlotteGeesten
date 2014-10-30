@@ -11,13 +11,13 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class GameStepDefinitions {
-    private final VlotteGeestenTestContext context = VlotteGeestenTestContext.getInstance();
-    VlotteGeestenGame anotherGame;
+    private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();
+    GeistesBlitz anotherGame;
     private PlayingCard shownCard;
 
     @Given("^a new game of GeistesBlitz$")
-    public void a_new_game_of_Vlotte_Geesten() {
-        context.setGame(new VlotteGeestenGame());
+    public void a_new_game_of_GeistesBlitz() {
+        context.setGame(new GeistesBlitz());
     }
 
     @Then("^the following items should be present:$")
@@ -65,7 +65,7 @@ public class GameStepDefinitions {
 
     @Given("^another new game$")
     public void another_new_game() throws Throwable {
-        anotherGame = new VlotteGeestenGame();
+        anotherGame = new GeistesBlitz();
     }
 
     @Then("^the decks of the two games should contain cards in a different order$")
