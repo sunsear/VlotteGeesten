@@ -6,19 +6,12 @@ import java.util.List;
 
 public class GeistesBlitz {
 
-    private final List<Item> items;
     private final List<PlayingCard> playingCards;
     private final List<Player> players = new ArrayList<Player>();
     private GameRound round;
     private Player winner;
 
     public GeistesBlitz() {
-        items = new ArrayList<Item>();
-        items.add(new Item(Colour.White, ItemType.Ghost));
-        items.add(new Item(Colour.Red, ItemType.Chair));
-        items.add(new Item(Colour.Blue, ItemType.Book));
-        items.add(new Item(Colour.Green, ItemType.Bottle));
-        items.add(new Item(Colour.Grey, ItemType.Mouse));
         playingCards = generateCards();
     }
 
@@ -66,7 +59,7 @@ public class GeistesBlitz {
 
     private List<CardImage> getAllPossibleCardImages() {
         List<CardImage> allImages = new ArrayList<CardImage>();
-        for (ItemType type : ItemType.values()) {
+        for (Shape type : Shape.values()) {
             for (Colour color : Colour.values()) {
                 allImages.add(new CardImage(color, type));
             }
@@ -86,7 +79,7 @@ public class GeistesBlitz {
 
     private boolean exactlyOneItemOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
-        for (Item item : items) {
+        for (Item item : Item.values()) {
             boolean found = cardToCheck.imageIsExactly(item);
             if (found) {
                 if (solutionFound) {
@@ -100,7 +93,7 @@ public class GeistesBlitz {
 
     private boolean moreThanOneItemMatchesBecauseNotShownOnCard(PlayingCard cardToCheck) {
         boolean solutionFound = false;
-        for (Item item : items) {
+        for (Item item : Item.values()) {
             boolean found = !cardToCheck.itemTypeOrColorOnAnImage(item);
             if (found) {
                 if (solutionFound) {
@@ -110,10 +103,6 @@ public class GeistesBlitz {
             }
         }
         return false;
-    }
-
-    public boolean contains(Item item) {
-        return items.contains(item);
     }
 
     public List<PlayingCard> availableCards() {
@@ -203,10 +192,6 @@ public class GeistesBlitz {
 
     public Player getWinner() {
         return winner;
-    }
-
-    public List<Item> getItems() {
-        return items;
     }
 
     public List<Player> getPlayers() {

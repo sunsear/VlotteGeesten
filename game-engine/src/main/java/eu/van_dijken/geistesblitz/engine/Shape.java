@@ -1,6 +1,6 @@
 package eu.van_dijken.geistesblitz.engine;
 
-public enum ItemType {
+public enum Shape {
     Ghost,
     Chair,
     Bottle,

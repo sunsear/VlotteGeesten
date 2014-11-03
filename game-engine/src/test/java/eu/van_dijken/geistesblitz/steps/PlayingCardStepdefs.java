@@ -9,10 +9,10 @@ import java.util.List;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import eu.van_dijken.geistesblitz.engine.CardImage;
-import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.Colour;
-import eu.van_dijken.geistesblitz.engine.ItemType;
+import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
+import eu.van_dijken.geistesblitz.engine.Shape;
 
 public class PlayingCardStepdefs {
     private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();
@@ -34,13 +34,13 @@ public class PlayingCardStepdefs {
     }
 
     @Then("^the correct solution should be the \"([^\" ]*) ([^\"]*)\"$")
-    public void the_correct_solution_is_the(Colour colour, ItemType type) throws Throwable {
-        assertTrue(context.getCard().isDesiredItem(new Item(colour, type)));
+    public void the_correct_solution_is_the(Colour colour, Shape type) throws Throwable {
+        assertTrue(context.getCard().isDesiredItem(Item.valueOf(type.name())));
     }    
 
     @Then("^\"([^\" ]*) ([^\"]*)\" should not be a correct solution$")
-    public void should_not_be_a_correct_solution(Colour colour, ItemType type) throws Throwable {
-        assertFalse(context.getCard().isDesiredItem(new Item(colour, type)));
+    public void should_not_be_a_correct_solution(Colour colour, Item item) throws Throwable {
+        assertFalse(context.getCard().isDesiredItem(item));
     }
     
     

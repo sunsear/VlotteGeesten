@@ -2,9 +2,9 @@ package eu.van_dijken.geistesblitz.engine;
 
 public class ObjectWithColourAndType {
     Colour color;
-    ItemType type;
+    Shape type;
 
-    public ObjectWithColourAndType(ItemType type, Colour color) {
+    public ObjectWithColourAndType(Shape type, Colour color) {
         this.type = type;
         this.color = color;
     }
@@ -13,7 +13,7 @@ public class ObjectWithColourAndType {
         return color;
     }
 
-    public ItemType getType() {
+    public Shape getType() {
         return type;
     }
 

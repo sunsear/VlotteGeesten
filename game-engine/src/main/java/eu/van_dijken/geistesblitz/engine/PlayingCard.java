@@ -9,8 +9,8 @@ public class PlayingCard {
     private final List<CardImage> cardImages = new ArrayList<CardImage>();
 
     public List<CardImage> images() {
-        cardImages.add(new CardImage(Colour.Blue, ItemType.Book));
-        cardImages.add(new CardImage(Colour.Red, ItemType.Bottle));
+        cardImages.add(new CardImage(Colour.Blue, Shape.Book));
+        cardImages.add(new CardImage(Colour.Red, Shape.Bottle));
         return cardImages;
     }
 
@@ -21,28 +21,28 @@ public class PlayingCard {
                 '}';
     }
 
-    public boolean isDesiredItem(ObjectWithColourAndType itemToCheck) {
-        if (imageIsExactly(itemToCheck)) {
+    public boolean isDesiredItem(Item item) {
+        if (imageIsExactly(item)) {
             return true;
         }
-        return !itemTypeOrColorOnAnImage(itemToCheck);
+        return !itemTypeOrColorOnAnImage(item);
     }
 
-    boolean itemTypeOrColorOnAnImage(ObjectWithColourAndType itemToCheck) {
+    boolean itemTypeOrColorOnAnImage(Item item) {
         for (CardImage image : cardImages) {
-            if (image.getColor().equals(itemToCheck.getColor())) {
+            if (image.getColor().equals(item.getColor())) {
                 return true;
             }
-            if (image.getType().equals(itemToCheck.getType())) {
+            if (image.getType().equals(item.getType())) {
                 return true;
             }
         }
         return false;
     }
 
-    boolean imageIsExactly(ObjectWithColourAndType itemToCheck) {
+    boolean imageIsExactly(Item item) {
         for (CardImage image : cardImages) {
-            if (image.matches(itemToCheck)) {
+            if (image.getType() == item.getType() && image.getColor() == item.getColor()) {
                 return true;
             }
         }
