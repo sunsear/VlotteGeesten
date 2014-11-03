@@ -1,7 +1,5 @@
 Feature: Checking the number of players
-  In order to play the game
-  players
-  want to enforce rules on the order and rules of play
+  A game of GeistesBlitz only works with 2 to 8 players.
 
   Scenario: 14. Minimum number of players allowed
     Given a new game of GeistesBlitz
