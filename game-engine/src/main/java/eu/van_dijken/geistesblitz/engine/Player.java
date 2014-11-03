@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import material.PlayingCard;
+import eu.van_dijken.geistesblitz.material.PlayingCard;
 
 public class Player {
     private final String name;

@@ -1,4 +1,4 @@
-package eu.van_dijken.geistesblitz.engine;
+package eu.van_dijken.geistesblitz;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;

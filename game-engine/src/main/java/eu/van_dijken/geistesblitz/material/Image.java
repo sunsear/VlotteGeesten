@@ -1,11 +1,13 @@
-package material;
+package eu.van_dijken.geistesblitz.material;
 
 public class Image {
     Color color;
     Item item;
 
     public Image(Item item, Color color) {
-        this.item = item;
+		if (item == null || color == null) {
+			throw new IllegalArgumentException("Every image should depict an item in a color");
+		}        this.item = item;
         this.color = color;
     }
 
@@ -29,25 +31,10 @@ public class Image {
 
         Image that = (Image) o;
 
-        if (color != null ? !color.equals(that.color) : that.color != null) {
+        if (!color.equals(that.color)) {
             return false;
         }
-        if (item != null ? !item.equals(that.item) : that.item != null) {
-            return false;
-        }
-
-        return true;
-    }
-
-    public boolean matches(Image that) {
-        if (this == that) {
-            return true;
-        }
-
-        if (color != null ? !color.equals(that.color) : that.color != null) {
-            return false;
-        }
-        if (item != null ? !item.equals(that.item) : that.item != null) {
+        if (!item.equals(that.item)) {
             return false;
         }
 
@@ -56,9 +43,7 @@ public class Image {
 
     @Override
     public int hashCode() {
-        int result = color != null ? color.hashCode() : 0;
-        result = 31 * result + (item != null ? item.hashCode() : 0);
-        return result;
+        return 31 * color.hashCode() + item.hashCode();
     }
 
     @Override

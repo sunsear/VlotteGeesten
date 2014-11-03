@@ -1,4 +1,4 @@
-package material;
+package eu.van_dijken.geistesblitz.material;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import material.Item;
-import material.PlayingCard;
+import eu.van_dijken.geistesblitz.material.Item;
+import eu.van_dijken.geistesblitz.material.PlayingCard;
 
 public class GameRound {
     private final PlayingCard shownCard;

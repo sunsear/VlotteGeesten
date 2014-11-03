@@ -1,4 +1,4 @@
-package material;
+package eu.van_dijken.geistesblitz.material;
 
 
 public enum Item {

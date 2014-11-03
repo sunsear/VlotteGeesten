@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import material.Color;
-import material.Image;
-import material.Item;
-import material.PlayingCard;
+import eu.van_dijken.geistesblitz.material.Color;
+import eu.van_dijken.geistesblitz.material.Image;
+import eu.van_dijken.geistesblitz.material.Item;
+import eu.van_dijken.geistesblitz.material.PlayingCard;
 
 public class GeistesBlitz {
 
