@@ -15,7 +15,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.Colour;
+import eu.van_dijken.geistesblitz.engine.Color;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
 import eu.van_dijken.geistesblitz.engine.Image;
 import eu.van_dijken.geistesblitz.engine.Item;
@@ -145,8 +145,8 @@ public class GameStepDefinitions {
 	}
 
 	@Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\" and a \"([^\" ]*) ([^\"]*)\"$")
-	public void a_new_round_of_play_showing_a_card_with_a_and_a(Colour colour,
-			Item type, Colour colour2, Item type2) {
+	public void a_new_round_of_play_showing_a_card_with_a_and_a(Color colour,
+			Item type, Color colour2, Item type2) {
 		shownCard = new PlayingCard();
 		shownCard.addImages(new Image(type, colour));
 		shownCard.addImages(new Image(type2, colour2));
@@ -157,14 +157,14 @@ public class GameStepDefinitions {
 	@Given("^a new round of play showing a card$")
 	public void a_new_round_of_play_showing_a_card() {
 		shownCard = new PlayingCard();
-		shownCard.addImages(new Image(Item.Mouse, Colour.Grey));
-		shownCard.addImages(new Image(Item.Book, Colour.Green));
+		shownCard.addImages(new Image(Item.Mouse, Color.Gray));
+		shownCard.addImages(new Image(Item.Book, Color.Green));
 		putCardFirstInDeck();
 		context.getGame().round();
 	}
 
 	@When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
-	public void player_chooses_the(int playerNumber, Colour colour, Item type)
+	public void player_chooses_the(int playerNumber, Color colour, Item type)
 			throws Throwable {
 		context.getGame().provideSolution(playerNumber - 1,
 				Item.valueOf(type.name()));
@@ -257,15 +257,15 @@ public class GameStepDefinitions {
 	}
 
 	public class ItemDescription {
-		Colour color;
+		Color color;
 		String type;
 
-		public ItemDescription(String type, Colour color) {
+		public ItemDescription(String type, Color color) {
 			this.type = type;
 			this.color = color;
 		}
 
-		public Colour getColor() {
+		public Color getColor() {
 			return color;
 		}
 

@@ -60,7 +60,7 @@ public class GeistesBlitz {
     private List<Image> getAllPossibleImages() {
         List<Image> allImages = new ArrayList<Image>();
         for (Item item : Item.values()) {
-            for (Colour color : Colour.values()) {
+            for (Color color : Color.values()) {
                 allImages.add(new Image(item, color));
             }
         }

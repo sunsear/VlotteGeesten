@@ -14,7 +14,7 @@ Feature: Generating a deck of valid cards
     Given a playing card with items displayed:
       | color | item   |
       | Blue  | Bottle |
-      | Grey  | Chair  |
+      | Gray  | Chair  |
     Then that card is valid according to game rules
 
   Scenario: 8. Card is valid only if a item is present at most once
@@ -32,12 +32,12 @@ Feature: Generating a deck of valid cards
     Then that card is valid according to game rules
     Given a playing card with items displayed:
       | color | item  |
-      | Grey  | Mouse |
+      | Gray  | Mouse |
       | Red   | Ghost |
     Then that card is valid according to game rules
     Given a playing card with items displayed:
       | color | item  |
-      | Grey  | Mouse |
+      | Gray  | Mouse |
       | Red   | Chair |
     Then that card is not valid according to game rules
 
@@ -45,21 +45,21 @@ Feature: Generating a deck of valid cards
     Given a playing card with items displayed:
       | color | item   |
       | Green | Mouse  |
-      | Grey  | Bottle |
+      | Gray  | Bottle |
     Then that card is not valid according to game rules
     Given a playing card with items displayed:
       | color | item   |
-      | Grey  | Bottle |
+      | Gray  | Bottle |
       | Red   | Mouse  |
     Then that card is not valid according to game rules
     Given a playing card with items displayed:
       | color | item   |
-      | Grey  | Bottle |
+      | Gray  | Bottle |
       | Red   | Book   |
     Then that card is valid according to game rules
     Given a playing card with items displayed:
       | color | item  |
-      | Grey  | Mouse |
+      | Gray  | Mouse |
       | Red   | Book  |
     Then that card is valid according to game rules
 

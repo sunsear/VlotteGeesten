@@ -9,8 +9,8 @@ public class PlayingCard {
     private final List<Image> cardImages = new ArrayList<Image>();
 
     public List<Image> images() {
-        cardImages.add(new Image(Item.Book, Colour.Blue));
-        cardImages.add(new Image(Item.Bottle, Colour.Red));
+        cardImages.add(new Image(Item.Book, Color.Blue));
+        cardImages.add(new Image(Item.Bottle, Color.Red));
         return cardImages;
     }
 

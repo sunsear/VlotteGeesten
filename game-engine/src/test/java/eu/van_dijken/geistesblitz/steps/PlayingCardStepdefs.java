@@ -8,7 +8,7 @@ import java.util.List;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import eu.van_dijken.geistesblitz.engine.Colour;
+import eu.van_dijken.geistesblitz.engine.Color;
 import eu.van_dijken.geistesblitz.engine.Image;
 import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
@@ -33,12 +33,12 @@ public class PlayingCardStepdefs {
     }
 
     @Then("^the correct solution should be the \"([^\" ]*) ([^\"]*)\"$")
-    public void the_correct_solution_is_the(Colour colour, Item item) throws Throwable {
+    public void the_correct_solution_is_the(Color colour, Item item) throws Throwable {
         assertTrue(context.getCard().isDesiredItem(item));
     }    
 
     @Then("^\"([^\" ]*) ([^\"]*)\" should not be a correct solution$")
-    public void should_not_be_a_correct_solution(Colour colour, Item item) throws Throwable {
+    public void should_not_be_a_correct_solution(Color colour, Item item) throws Throwable {
         assertFalse(context.getCard().isDesiredItem(item));
     }
     

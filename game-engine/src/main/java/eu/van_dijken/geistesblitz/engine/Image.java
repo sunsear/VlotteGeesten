@@ -1,15 +1,15 @@
 package eu.van_dijken.geistesblitz.engine;
 
 public class Image {
-    Colour color;
+    Color color;
     Item item;
 
-    public Image(Item item, Colour color) {
+    public Image(Item item, Color color) {
         this.item = item;
         this.color = color;
     }
 
-    public Colour getColor() {
+    public Color getColor() {
         return color;
     }
 

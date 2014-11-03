@@ -2,23 +2,23 @@ package eu.van_dijken.geistesblitz.engine;
 
 
 public enum Item {
-    Ghost (Colour.White),
-    Chair (Colour.Red),
-    Bottle (Colour.Green),
-    Book (Colour.Blue),
-    Mouse (Colour.Grey);
+    Ghost (Color.White),
+    Chair (Color.Red),
+    Bottle (Color.Green),
+    Book (Color.Blue),
+    Mouse (Color.Gray);
     
-    private Colour color;
+    private Color color;
     
-	private Item(Colour color) {
+	private Item(Color color) {
 		this.color = color;
 	}
 
-	public Colour color() {
+	public Color color() {
 		return color;
 	}
 	
-    public Colour getColor() {
+    public Color getColor() {
         return color;
     }
 

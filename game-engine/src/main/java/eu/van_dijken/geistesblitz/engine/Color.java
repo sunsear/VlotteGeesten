@@ -1,9 +1,9 @@
 package eu.van_dijken.geistesblitz.engine;
 
-public enum Colour {
+public enum Color {
     White,
     Red,
     Blue,
-    Grey,
+    Gray,
     Green
 }
