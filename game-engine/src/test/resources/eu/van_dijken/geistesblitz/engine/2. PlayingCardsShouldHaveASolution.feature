@@ -1,4 +1,4 @@
-Feature: Playing Cards
+Feature: Playing Cards should have a solution
   In order to have a correctly working set of cards
   Gamemaster
   wants to check that cards have a solution

@@ -1,4 +1,4 @@
-Feature: Game Rounds
+Feature: Playing rounds of the game should result in scoring
   Each round starts by the game providing a random card from the deck. Players can attempt to provide a solution
   for the card shown. The first player to select the correct solution is given the card that was shown. That player
   adds the card shown to his pile. A player providing an incorrect solution will lose a card from his pile. A

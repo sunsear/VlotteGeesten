@@ -1,4 +1,4 @@
-Feature: Playing Card generation
+Feature: Generating a deck of valid cards
   In order to have a correctly working set of cards
   Gamemaster
   wants to generate a set of valid cards

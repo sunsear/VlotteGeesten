@@ -1,4 +1,4 @@
-Feature: Game Play
+Feature: Checking the number of players
   In order to play the game
   players
   want to enforce rules on the order and rules of play

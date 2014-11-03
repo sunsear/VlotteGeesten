@@ -1,4 +1,4 @@
-Feature: Game Objects
+Feature: Setting up the game objects to start the game
   In order to start the game
   Gamemaster
   wants to check the starting game state
