@@ -39,6 +39,8 @@ Feature: Playing Cards should have a solution
       | Blue  | Bottle |
       | Grey  | Chair  |
     Then "Red Chair" should not be a correct solution
+
+  Scenario: 
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
