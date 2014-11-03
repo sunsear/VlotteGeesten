@@ -15,7 +15,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.CardImage;
+import eu.van_dijken.geistesblitz.engine.ObjectWithColourAndType;
 import eu.van_dijken.geistesblitz.engine.Colour;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
 import eu.van_dijken.geistesblitz.engine.Item;
@@ -149,8 +149,8 @@ public class GameStepDefinitions {
 	public void a_new_round_of_play_showing_a_card_with_a_and_a(Colour colour,
 			Shape type, Colour colour2, Shape type2) {
 		shownCard = new PlayingCard();
-		shownCard.addImages(new CardImage(colour, type));
-		shownCard.addImages(new CardImage(colour2, type2));
+		shownCard.addImages(new ObjectWithColourAndType(type, colour));
+		shownCard.addImages(new ObjectWithColourAndType(type2, colour2));
 		putCardFirstInDeck();
 		context.getGame().round();
 	}
@@ -158,8 +158,8 @@ public class GameStepDefinitions {
 	@Given("^a new round of play showing a card$")
 	public void a_new_round_of_play_showing_a_card() {
 		shownCard = new PlayingCard();
-		shownCard.addImages(new CardImage(Colour.Grey, Shape.Mouse));
-		shownCard.addImages(new CardImage(Colour.Green, Shape.Book));
+		shownCard.addImages(new ObjectWithColourAndType(Shape.Mouse, Colour.Grey));
+		shownCard.addImages(new ObjectWithColourAndType(Shape.Book, Colour.Green));
 		putCardFirstInDeck();
 		context.getGame().round();
 	}

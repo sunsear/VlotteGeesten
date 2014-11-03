@@ -16,7 +16,7 @@ public class GeistesBlitz {
     }
 
     private List<PlayingCard> generateCards() {
-        List<CardImage> allImages = getAllPossibleCardImages();
+        List<ObjectWithColourAndType> allImages = getAllPossibleObjectWithColourAndTypes();
         List<PlayingCard> cards = generateAllPotentialPlayingCards(allImages);
         cards = pruneAllNonValidCards(cards);
         shuffleAllCards(cards);
@@ -45,10 +45,10 @@ public class GeistesBlitz {
         return validCards;
     }
 
-    private ArrayList<PlayingCard> generateAllPotentialPlayingCards(List<CardImage> allImages) {
+    private ArrayList<PlayingCard> generateAllPotentialPlayingCards(List<ObjectWithColourAndType> allImages) {
         ArrayList<PlayingCard> cards = new ArrayList<PlayingCard>();
-        for (CardImage image : allImages) {
-            for (CardImage image2 : allImages) {
+        for (ObjectWithColourAndType image : allImages) {
+            for (ObjectWithColourAndType image2 : allImages) {
                 PlayingCard playingCard = new PlayingCard();
                 playingCard.addImages(image, image2);
                 cards.add(playingCard);
@@ -57,11 +57,11 @@ public class GeistesBlitz {
         return cards;
     }
 
-    private List<CardImage> getAllPossibleCardImages() {
-        List<CardImage> allImages = new ArrayList<CardImage>();
+    private List<ObjectWithColourAndType> getAllPossibleObjectWithColourAndTypes() {
+        List<ObjectWithColourAndType> allImages = new ArrayList<ObjectWithColourAndType>();
         for (Shape type : Shape.values()) {
             for (Colour color : Colour.values()) {
-                allImages.add(new CardImage(color, type));
+                allImages.add(new ObjectWithColourAndType(type, color));
             }
         }
         return allImages;

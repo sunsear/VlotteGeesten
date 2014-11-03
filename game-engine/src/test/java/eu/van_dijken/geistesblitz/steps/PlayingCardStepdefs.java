@@ -8,7 +8,7 @@ import java.util.List;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import eu.van_dijken.geistesblitz.engine.CardImage;
+import eu.van_dijken.geistesblitz.engine.ObjectWithColourAndType;
 import eu.van_dijken.geistesblitz.engine.Colour;
 import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
@@ -28,7 +28,7 @@ public class PlayingCardStepdefs {
     }
 
     @Given("^a playing card with items displayed:$")
-    public void a_playing_card_with_items_displayed(List<CardImage> imagesDisplayed) throws Throwable {
+    public void a_playing_card_with_items_displayed(List<ObjectWithColourAndType> imagesDisplayed) throws Throwable {
         context.setCard(new PlayingCard());
         context.getCard().addImages(imagesDisplayed);
     }
