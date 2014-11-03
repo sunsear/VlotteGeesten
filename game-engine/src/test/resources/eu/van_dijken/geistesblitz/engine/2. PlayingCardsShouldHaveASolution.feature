@@ -8,9 +8,9 @@ Feature: Playing Cards should have a solution
   Scenario: Solution is the item that is shown in the right colour
     Given a playing card with items displayed:
       | color | type  |
-      | Gray  | Mouse |
+      | Grey  | Mouse |
       | Blue  | Ghost |
-    Then the correct solution should be the "Gray Mouse"
+    Then the correct solution should be the "Grey Mouse"
 
   Scenario: 
     Given a playing card with items displayed:
@@ -30,17 +30,17 @@ Feature: Playing Cards should have a solution
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
-      | Gray  | Chair  |
+      | Grey  | Chair  |
     Then the correct solution should be the "White Ghost"
 
   Scenario: 6. Wrong item chosen
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
-      | Gray  | Chair  |
+      | Grey  | Chair  |
     Then "Red Chair" should not be a correct solution
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
-      | Gray  | Chair  |
-    Then "Gray Mouse" should not be a correct solution
+      | Grey  | Chair  |
+    Then "Grey Mouse" should not be a correct solution

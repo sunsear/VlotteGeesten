@@ -12,7 +12,7 @@ Feature: Game Materials
       | Red   | Chair  |
       | Blue  | Book   |
       | Green | Bottle |
-      | Gray  | Mouse  |
+      | Grey  | Mouse  |
 
   Scenario: 2. The deck of cards
     Given a new game of GeistesBlitz

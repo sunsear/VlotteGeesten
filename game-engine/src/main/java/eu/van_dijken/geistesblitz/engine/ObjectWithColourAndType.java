@@ -1,15 +1,15 @@
 package eu.van_dijken.geistesblitz.engine;
 
 public class ObjectWithColourAndType {
-    ItemColor color;
+    Colour color;
     ItemType type;
 
-    public ObjectWithColourAndType(ItemType type, ItemColor color) {
+    public ObjectWithColourAndType(ItemType type, Colour color) {
         this.type = type;
         this.color = color;
     }
 
-    public ItemColor getColor() {
+    public Colour getColor() {
         return color;
     }
 

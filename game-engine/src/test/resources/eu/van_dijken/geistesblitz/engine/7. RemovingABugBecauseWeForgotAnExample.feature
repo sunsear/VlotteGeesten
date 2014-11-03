@@ -10,7 +10,7 @@ Feature: Scenarios we forgot
     What happens if neither player selects the correct solution? In our initial implementation this resulted in...
     Wait for it...
     A NullPointerException, Yay!
-    Given a new round of play showing a card with a "Gray Mouse" and a "Green Book"
+    Given a new round of play showing a card with a "Grey Mouse" and a "Green Book"
     And player 1 has won 1 cards
     And player 2 has won 1 cards
     When player 1 chooses the "Green Bottle"

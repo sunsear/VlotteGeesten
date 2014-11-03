@@ -14,11 +14,11 @@ public class GeistesBlitz {
 
     public GeistesBlitz() {
         items = new ArrayList<Item>();
-        items.add(new Item(ItemColor.White, ItemType.Ghost));
-        items.add(new Item(ItemColor.Red, ItemType.Chair));
-        items.add(new Item(ItemColor.Blue, ItemType.Book));
-        items.add(new Item(ItemColor.Green, ItemType.Bottle));
-        items.add(new Item(ItemColor.Gray, ItemType.Mouse));
+        items.add(new Item(Colour.White, ItemType.Ghost));
+        items.add(new Item(Colour.Red, ItemType.Chair));
+        items.add(new Item(Colour.Blue, ItemType.Book));
+        items.add(new Item(Colour.Green, ItemType.Bottle));
+        items.add(new Item(Colour.Grey, ItemType.Mouse));
         playingCards = generateCards();
     }
 
@@ -67,7 +67,7 @@ public class GeistesBlitz {
     private List<CardImage> getAllPossibleCardImages() {
         List<CardImage> allImages = new ArrayList<CardImage>();
         for (ItemType type : ItemType.values()) {
-            for (ItemColor color : ItemColor.values()) {
+            for (Colour color : Colour.values()) {
                 allImages.add(new CardImage(color, type));
             }
         }
@@ -154,7 +154,7 @@ public class GeistesBlitz {
     public PlayingCard shownCard() {return round.getShownCard();}
 
     public void provideSolution(int playerIndex, Item item) {
-        round.provideSolution(players.get(playerIndex), item);
+        round.provideAnswer(players.get(playerIndex), item);
     }
 
     public void finishRound() {

@@ -18,7 +18,7 @@ import cucumber.api.java.en.When;
 import eu.van_dijken.geistesblitz.engine.CardImage;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
 import eu.van_dijken.geistesblitz.engine.Item;
-import eu.van_dijken.geistesblitz.engine.ItemColor;
+import eu.van_dijken.geistesblitz.engine.Colour;
 import eu.van_dijken.geistesblitz.engine.ItemType;
 import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
 import eu.van_dijken.geistesblitz.engine.Player;
@@ -133,7 +133,7 @@ public class GameStepDefinitions {
     }
 
     @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\" and a \"([^\" ]*) ([^\"]*)\"$")
-    public void a_new_round_of_play_showing_a_card_with_a_and_a(ItemColor colour, ItemType type, ItemColor colour2,
+    public void a_new_round_of_play_showing_a_card_with_a_and_a(Colour colour, ItemType type, Colour colour2,
                                                                 ItemType type2) {
         shownCard = new PlayingCard();
         shownCard.addImages(new CardImage(colour, type));
@@ -145,25 +145,25 @@ public class GameStepDefinitions {
     @Given("^a new round of play showing a card$")
     public void a_new_round_of_play_showing_a_card() {
         shownCard = new PlayingCard();
-        shownCard.addImages(new CardImage(ItemColor.Gray, ItemType.Mouse));
-        shownCard.addImages(new CardImage(ItemColor.Green, ItemType.Book));
+        shownCard.addImages(new CardImage(Colour.Grey, ItemType.Mouse));
+        shownCard.addImages(new CardImage(Colour.Green, ItemType.Book));
         putCardFirstInDeck();
     	context.getGame().round();
     }    
 
     @When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
-    public void player_chooses_the(int playerNumber, ItemColor colour, ItemType type) throws Throwable {
+    public void player_chooses_the(int playerNumber, Colour colour, ItemType type) throws Throwable {
         context.getGame().provideSolution(playerNumber - 1, new Item(colour, type));
     }
     
     @When("^player (\\d+) provides the desired item$")
     public void player_provides_the_desired_item(int playerNumber) {
-        context.getGame().provideSolution(playerNumber - 1, new Item(ItemColor.Gray, ItemType.Mouse)); 
+        context.getGame().provideSolution(playerNumber - 1, new Item(Colour.Grey, ItemType.Mouse)); 
     }
     
     @When("^player (\\d+) provides an incorrect item$")
     public void player_provides_an_incorrect_item(int playerNumber) {
-        context.getGame().provideSolution(playerNumber - 1, new Item(ItemColor.Blue, ItemType.Book)); 
+        context.getGame().provideSolution(playerNumber - 1, new Item(Colour.Blue, ItemType.Book)); 
     }  
 
     @Then("^player (\\d+) has won the shown card$")

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GameRound {
     private final PlayingCard shownCard;
-    private final List<Solution> solutions = new ArrayList<Solution>();
+    private final List<AnAnswer> answersGiven = new ArrayList<AnAnswer>();
     private Player winner;
     private List<Player> losers;
 
@@ -18,12 +18,12 @@ public class GameRound {
         return shownCard;
     }
 
-    public void provideSolution(Player player, Item item) {
-        solutions.add(new Solution(player, item));
+    public void provideAnswer(Player player, Item item) {
+        answersGiven.add(new AnAnswer(player, item));
     }
 
-    public List<Solution> getSolutions() {
-        return Collections.unmodifiableList(solutions);
+    public List<AnAnswer> getAnswersGiven() {
+        return Collections.unmodifiableList(answersGiven);
     }
 
     Player getWinner() {
@@ -44,20 +44,20 @@ public class GameRound {
 
     void determineRoundWinnerAndLosers() {
         losers = new ArrayList<Player>();
-        for (Solution solution : getSolutions()) {
-            if (getShownCard().isCorrectSolution(solution.getItem()) && winner == null) {
-                winner = solution.getPlayer();
+        for (AnAnswer answer : getAnswersGiven()) {
+            if (getShownCard().isDesiredItem(answer.getItem()) && winner == null) {
+                winner = answer.getPlayer();
             } else {
-                losers.add(solution.getPlayer());
+                losers.add(answer.getPlayer());
             }
         }
     }
 
-    class Solution {
+    class AnAnswer {
         private final Player player;
         private final Item item;
 
-        public Solution(Player player, Item item) {
+        public AnAnswer(Player player, Item item) {
             this.player = player;
             this.item = item;
         }

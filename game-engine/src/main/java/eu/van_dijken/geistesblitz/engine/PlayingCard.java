@@ -9,8 +9,8 @@ public class PlayingCard {
     private final List<CardImage> cardImages = new ArrayList<CardImage>();
 
     public List<CardImage> images() {
-        cardImages.add(new CardImage(ItemColor.Blue, ItemType.Book));
-        cardImages.add(new CardImage(ItemColor.Red, ItemType.Bottle));
+        cardImages.add(new CardImage(Colour.Blue, ItemType.Book));
+        cardImages.add(new CardImage(Colour.Red, ItemType.Bottle));
         return cardImages;
     }
 
@@ -21,7 +21,7 @@ public class PlayingCard {
                 '}';
     }
 
-    public boolean isCorrectSolution(ObjectWithColourAndType itemToCheck) {
+    public boolean isDesiredItem(ObjectWithColourAndType itemToCheck) {
         if (imageIsExactly(itemToCheck)) {
             return true;
         }
