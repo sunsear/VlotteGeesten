@@ -1,27 +1,27 @@
-package eu.van_dijken.vlottegeesten.engine;
+package eu.van_dijken.geistesblitz.engine;
 
 public class ObjectWithColourAndType {
-    TokenColor color;
-    TokenType type;
+    ItemColor color;
+    ItemType type;
 
-    public ObjectWithColourAndType(TokenType type, TokenColor color) {
+    public ObjectWithColourAndType(ItemType type, ItemColor color) {
         this.type = type;
         this.color = color;
     }
 
-    public TokenColor getColor() {
+    public ItemColor getColor() {
         return color;
     }
 
-    public void setColor(TokenColor color) {
+    public void setColor(ItemColor color) {
         this.color = color;
     }
 
-    public TokenType getType() {
+    public ItemType getType() {
         return type;
     }
 
-    public void setType(TokenType type) {
+    public void setType(ItemType type) {
         this.type = type;
     }
 

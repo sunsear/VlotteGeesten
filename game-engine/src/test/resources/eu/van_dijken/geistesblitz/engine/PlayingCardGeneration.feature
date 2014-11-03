@@ -4,61 +4,61 @@ Feature: Playing Card generation
   wants to generate a set of valid cards
 
   Background: Setting up a new game
-    Given a new game of Vlotte Geesten
+    Given a new game of GeistesBlitz
 
   Scenario: 7. Card is valid only if a color is present at most once
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
       | Blue  | Chair  |
     Then that card is not valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
       | Gray  | Chair  |
     Then that card is valid according to game rules
 
-  Scenario: 8. Card is valid only if a token is present at most once
-    Given a playing card with tokens displayed:
+  Scenario: 8. Card is valid only if a item is present at most once
+    Given a playing card with items displayed:
       | color | type   |
       | Red   | Bottle |
       | Blue  | Bottle |
     Then that card is not valid according to game rules
 
-  Scenario: 9. Card is valid only if at most one game token is shown
-    Given a playing card with tokens displayed:
+  Scenario: 9. Card is valid only if at most one game item is shown
+    Given a playing card with items displayed:
       | color | type  |
       | Blue  | Mouse |
       | Red   | Ghost |
     Then that card is valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type  |
       | Gray  | Mouse |
       | Red   | Ghost |
     Then that card is valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type  |
       | Gray  | Mouse |
       | Red   | Chair |
     Then that card is not valid according to game rules
 
   Scenario: 10. Card is valid only if there is exactly one solution
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type   |
       | Green | Mouse  |
       | Gray  | Bottle |
     Then that card is not valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type   |
       | Gray  | Bottle |
       | Red   | Mouse  |
     Then that card is not valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type   |
       | Gray  | Bottle |
       | Red   | Book   |
     Then that card is valid according to game rules
-    Given a playing card with tokens displayed:
+    Given a playing card with items displayed:
       | color | type  |
       | Gray  | Mouse |
       | Red   | Book  |
