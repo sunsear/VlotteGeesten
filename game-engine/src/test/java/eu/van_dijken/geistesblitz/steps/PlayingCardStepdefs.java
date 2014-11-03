@@ -5,6 +5,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import eu.van_dijken.geistesblitz.engine.CardImage;
 import eu.van_dijken.geistesblitz.engine.Item;
+import eu.van_dijken.geistesblitz.engine.ItemColor;
+import eu.van_dijken.geistesblitz.engine.ItemType;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
 
 import java.util.List;
@@ -30,19 +32,15 @@ public class PlayingCardStepdefs {
         context.getCard().addImages(imagesDisplayed);
     }
 
-    @When("^the player chooses game item:$")
-    public void the_player_chooses_game_item(List<Item> objectsChosen) throws Throwable {
-        context.getCard().chooseItem(objectsChosen.get(0));
-    }
+    @Then("^the correct solution should be the \"([^\" ]*) ([^\"]*)\"$")
+    public void the_correct_solution_is_the(ItemColor colour, ItemType type) throws Throwable {
+        assertTrue(context.getCard().isCorrectSolution(new Item(colour, type)));
+    }    
 
-    @Then("^that is the correct solution$")
-    public void that_is_the_correct_solution() throws Throwable {
-        assertTrue(context.getCard().correctItemChosen());
+    @Then("^\"([^\" ]*) ([^\"]*)\" should not be a correct solution$")
+    public void should_not_be_a_correct_solution(ItemColor colour, ItemType type) throws Throwable {
+        assertFalse(context.getCard().isCorrectSolution(new Item(colour, type)));
     }
-
-    @Then("^that is not the correct solution$")
-    public void that_is_not_the_correct_solution() throws Throwable {
-        assertFalse(context.getCard().correctItemChosen());
-    }
-
+    
+    
 }

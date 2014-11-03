@@ -7,17 +7,11 @@ import java.util.List;
 public class PlayingCard {
 
     private final List<CardImage> cardImages = new ArrayList<CardImage>();
-    private Item chosenItem;
 
     public List<CardImage> images() {
         cardImages.add(new CardImage(ItemColor.Blue, ItemType.Book));
         cardImages.add(new CardImage(ItemColor.Red, ItemType.Bottle));
         return cardImages;
-    }
-
-    public boolean correctItemChosen() {
-        Item itemToCheck = chosenItem;
-        return isCorrectSolution(itemToCheck);
     }
 
     @Override
@@ -27,7 +21,7 @@ public class PlayingCard {
                 '}';
     }
 
-    boolean isCorrectSolution(ObjectWithColourAndType itemToCheck) {
+    public boolean isCorrectSolution(ObjectWithColourAndType itemToCheck) {
         if (imageIsExactly(itemToCheck)) {
             return true;
         }
@@ -61,10 +55,6 @@ public class PlayingCard {
 
     public void addImages(CardImage... imagesDisplayed) {
         cardImages.addAll(Arrays.asList(imagesDisplayed));
-    }
-
-    public void chooseItem(Item item) {
-        chosenItem = item;
     }
 
     public boolean colorAndTypeOnlyPresentOnce() {
