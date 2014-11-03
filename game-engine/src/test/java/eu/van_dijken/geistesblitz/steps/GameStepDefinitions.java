@@ -1,16 +1,5 @@
 package eu.van_dijken.geistesblitz.steps;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.List;
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -23,6 +12,11 @@ import eu.van_dijken.geistesblitz.material.Color;
 import eu.van_dijken.geistesblitz.material.Image;
 import eu.van_dijken.geistesblitz.material.Item;
 import eu.van_dijken.geistesblitz.material.PlayingCard;
+
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 public class GameStepDefinitions {
 	private final GeistesBlitzTestContext context = GeistesBlitzTestContext
@@ -166,18 +160,17 @@ public class GameStepDefinitions {
 	@When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
 	public void player_chooses_the(int playerNumber, Color colour, Item type)
 			throws Throwable {
-		context.getGame().provideSolution(playerNumber - 1,
-				Item.valueOf(type.name()));
+		context.getGame().provideAnswer(playerNumber - 1, Item.valueOf(type.name()));
 	}
 
 	@When("^player (\\d+) provides the desired item$")
 	public void player_provides_the_desired_item(int playerNumber) {
-		context.getGame().provideSolution(playerNumber - 1, Item.Mouse);
+		context.getGame().provideAnswer(playerNumber - 1, Item.Mouse);
 	}
 
 	@When("^player (\\d+) provides an incorrect item$")
 	public void player_provides_an_incorrect_item(int playerNumber) {
-		context.getGame().provideSolution(playerNumber - 1, Item.Book);
+		context.getGame().provideAnswer(playerNumber - 1, Item.Book);
 	}
 
 	@Then("^player (\\d+) has won the shown card$")

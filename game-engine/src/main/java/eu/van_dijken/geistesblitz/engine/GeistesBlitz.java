@@ -1,13 +1,13 @@
 package eu.van_dijken.geistesblitz.engine;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import eu.van_dijken.geistesblitz.material.Color;
 import eu.van_dijken.geistesblitz.material.Image;
 import eu.van_dijken.geistesblitz.material.Item;
 import eu.van_dijken.geistesblitz.material.PlayingCard;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GeistesBlitz {
 
@@ -147,7 +147,7 @@ public class GeistesBlitz {
 
     public PlayingCard shownCard() {return round.getShownCard();}
 
-    public void provideSolution(int playerIndex, Item item) {
+    public void provideAnswer(int playerIndex, Item item) {
         round.provideAnswer(players.get(playerIndex), item);
     }
 
