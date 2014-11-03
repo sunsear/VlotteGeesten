@@ -11,17 +11,17 @@ import static org.junit.Assert.fail;
 
 import java.util.List;
 
+import material.Color;
+import material.Image;
+import material.Item;
+import material.PlayingCard;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.Color;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
-import eu.van_dijken.geistesblitz.engine.Image;
-import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
 import eu.van_dijken.geistesblitz.engine.Player;
-import eu.van_dijken.geistesblitz.engine.PlayingCard;
 import eu.van_dijken.geistesblitz.engine.TooManyPlayersException;
 
 public class GameStepDefinitions {

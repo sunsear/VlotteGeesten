@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import material.Item;
+import material.PlayingCard;
+
 public class GameRound {
     private final PlayingCard shownCard;
     private final List<AnAnswer> answersGiven = new ArrayList<AnAnswer>();

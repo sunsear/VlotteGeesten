@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import material.Color;
+import material.Image;
+import material.Item;
+import material.PlayingCard;
+
 public class GeistesBlitz {
 
     private final List<PlayingCard> playingCards;

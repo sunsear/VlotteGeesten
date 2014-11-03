@@ -6,12 +6,12 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import material.Color;
+import material.Image;
+import material.Item;
+import material.PlayingCard;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import eu.van_dijken.geistesblitz.engine.Color;
-import eu.van_dijken.geistesblitz.engine.Image;
-import eu.van_dijken.geistesblitz.engine.Item;
-import eu.van_dijken.geistesblitz.engine.PlayingCard;
 
 public class PlayingCardStepdefs {
     private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();

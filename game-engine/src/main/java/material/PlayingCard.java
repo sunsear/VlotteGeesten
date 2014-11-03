@@ -1,4 +1,4 @@
-package eu.van_dijken.geistesblitz.engine;
+package material;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +28,7 @@ public class PlayingCard {
         return !itemTypeOrColorOnAnImage(item);
     }
 
-    boolean itemTypeOrColorOnAnImage(Item item) {
+    public boolean itemTypeOrColorOnAnImage(Item item) {
         for (Image image : cardImages) {
             if (image.getColor().equals(item.getColor())) {
                 return true;
@@ -40,7 +40,7 @@ public class PlayingCard {
         return false;
     }
 
-    boolean imageIsExactly(Item item) {
+    public boolean imageIsExactly(Item item) {
         for (Image image : cardImages) {
             if (image.getItem() == item && image.getColor() == item.getColor()) {
                 return true;

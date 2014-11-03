@@ -1,4 +1,4 @@
-package eu.van_dijken.geistesblitz.engine;
+package material;
 
 public enum Color {
     White,

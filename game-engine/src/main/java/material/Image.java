@@ -1,4 +1,4 @@
-package eu.van_dijken.geistesblitz.engine;
+package material;
 
 public class Image {
     Color color;

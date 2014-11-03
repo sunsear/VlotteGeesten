@@ -1,7 +1,7 @@
 package eu.van_dijken.geistesblitz.steps;
 
+import material.PlayingCard;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
-import eu.van_dijken.geistesblitz.engine.PlayingCard;
 
 public class GeistesBlitzTestContext {
     private static GeistesBlitzTestContext instance;
