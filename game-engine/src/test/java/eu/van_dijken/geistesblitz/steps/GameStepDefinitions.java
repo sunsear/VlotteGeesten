@@ -15,14 +15,13 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.ObjectWithColourAndType;
 import eu.van_dijken.geistesblitz.engine.Colour;
 import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
+import eu.van_dijken.geistesblitz.engine.Image;
 import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
 import eu.van_dijken.geistesblitz.engine.Player;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
-import eu.van_dijken.geistesblitz.engine.Shape;
 import eu.van_dijken.geistesblitz.engine.TooManyPlayersException;
 
 public class GameStepDefinitions {
@@ -147,10 +146,10 @@ public class GameStepDefinitions {
 
 	@Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\" and a \"([^\" ]*) ([^\"]*)\"$")
 	public void a_new_round_of_play_showing_a_card_with_a_and_a(Colour colour,
-			Shape type, Colour colour2, Shape type2) {
+			Item type, Colour colour2, Item type2) {
 		shownCard = new PlayingCard();
-		shownCard.addImages(new ObjectWithColourAndType(type, colour));
-		shownCard.addImages(new ObjectWithColourAndType(type2, colour2));
+		shownCard.addImages(new Image(type, colour));
+		shownCard.addImages(new Image(type2, colour2));
 		putCardFirstInDeck();
 		context.getGame().round();
 	}
@@ -158,14 +157,14 @@ public class GameStepDefinitions {
 	@Given("^a new round of play showing a card$")
 	public void a_new_round_of_play_showing_a_card() {
 		shownCard = new PlayingCard();
-		shownCard.addImages(new ObjectWithColourAndType(Shape.Mouse, Colour.Grey));
-		shownCard.addImages(new ObjectWithColourAndType(Shape.Book, Colour.Green));
+		shownCard.addImages(new Image(Item.Mouse, Colour.Grey));
+		shownCard.addImages(new Image(Item.Book, Colour.Green));
 		putCardFirstInDeck();
 		context.getGame().round();
 	}
 
 	@When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
-	public void player_chooses_the(int playerNumber, Colour colour, Shape type)
+	public void player_chooses_the(int playerNumber, Colour colour, Item type)
 			throws Throwable {
 		context.getGame().provideSolution(playerNumber - 1,
 				Item.valueOf(type.name()));

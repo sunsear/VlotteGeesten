@@ -1,11 +1,11 @@
 package eu.van_dijken.geistesblitz.engine;
 
-public class ObjectWithColourAndType {
+public class Image {
     Colour color;
-    Shape type;
+    Item item;
 
-    public ObjectWithColourAndType(Shape type, Colour color) {
-        this.type = type;
+    public Image(Item item, Colour color) {
+        this.item = item;
         this.color = color;
     }
 
@@ -13,8 +13,8 @@ public class ObjectWithColourAndType {
         return color;
     }
 
-    public Shape getType() {
-        return type;
+    public Item getItem() {
+        return item;
     }
 
 
@@ -27,19 +27,19 @@ public class ObjectWithColourAndType {
             return false;
         }
 
-        ObjectWithColourAndType that = (ObjectWithColourAndType) o;
+        Image that = (Image) o;
 
         if (color != null ? !color.equals(that.color) : that.color != null) {
             return false;
         }
-        if (type != null ? !type.equals(that.type) : that.type != null) {
+        if (item != null ? !item.equals(that.item) : that.item != null) {
             return false;
         }
 
         return true;
     }
 
-    public boolean matches(ObjectWithColourAndType that) {
+    public boolean matches(Image that) {
         if (this == that) {
             return true;
         }
@@ -47,7 +47,7 @@ public class ObjectWithColourAndType {
         if (color != null ? !color.equals(that.color) : that.color != null) {
             return false;
         }
-        if (type != null ? !type.equals(that.type) : that.type != null) {
+        if (item != null ? !item.equals(that.item) : that.item != null) {
             return false;
         }
 
@@ -57,12 +57,12 @@ public class ObjectWithColourAndType {
     @Override
     public int hashCode() {
         int result = color != null ? color.hashCode() : 0;
-        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (item != null ? item.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{" + color + ", " + type + '}';
+        return getClass().getSimpleName() + "{" + color + ", " + item + '}';
     }
 }

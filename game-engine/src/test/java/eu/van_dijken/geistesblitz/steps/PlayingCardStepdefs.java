@@ -8,11 +8,10 @@ import java.util.List;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import eu.van_dijken.geistesblitz.engine.ObjectWithColourAndType;
 import eu.van_dijken.geistesblitz.engine.Colour;
+import eu.van_dijken.geistesblitz.engine.Image;
 import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
-import eu.van_dijken.geistesblitz.engine.Shape;
 
 public class PlayingCardStepdefs {
     private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();
@@ -28,14 +27,14 @@ public class PlayingCardStepdefs {
     }
 
     @Given("^a playing card with items displayed:$")
-    public void a_playing_card_with_items_displayed(List<ObjectWithColourAndType> imagesDisplayed) throws Throwable {
+    public void a_playing_card_with_items_displayed(List<Image> imagesDisplayed) throws Throwable {
         context.setCard(new PlayingCard());
         context.getCard().addImages(imagesDisplayed);
     }
 
     @Then("^the correct solution should be the \"([^\" ]*) ([^\"]*)\"$")
-    public void the_correct_solution_is_the(Colour colour, Shape type) throws Throwable {
-        assertTrue(context.getCard().isDesiredItem(Item.valueOf(type.name())));
+    public void the_correct_solution_is_the(Colour colour, Item item) throws Throwable {
+        assertTrue(context.getCard().isDesiredItem(item));
     }    
 
     @Then("^\"([^\" ]*) ([^\"]*)\" should not be a correct solution$")

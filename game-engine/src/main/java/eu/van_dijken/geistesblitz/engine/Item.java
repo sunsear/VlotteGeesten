@@ -22,11 +22,4 @@ public enum Item {
         return color;
     }
 
-    public Shape getType() {
-        return Shape.valueOf(this.name());
-    }
-
-    public boolean matches(Item that) {
-        return (this == that);    }
-	
 }

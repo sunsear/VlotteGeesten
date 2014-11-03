@@ -7,58 +7,58 @@ Feature: Generating a deck of valid cards
 
   Scenario: 7. Card is valid only if a color is present at most once
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Blue  | Bottle |
       | Blue  | Chair  |
     Then that card is not valid according to game rules
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Blue  | Bottle |
       | Grey  | Chair  |
     Then that card is valid according to game rules
 
   Scenario: 8. Card is valid only if a item is present at most once
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Red   | Bottle |
       | Blue  | Bottle |
     Then that card is not valid according to game rules
 
   Scenario: 9. Card is valid only if at most one game item is shown
     Given a playing card with items displayed:
-      | color | type  |
+      | color | item  |
       | Blue  | Mouse |
       | Red   | Ghost |
     Then that card is valid according to game rules
     Given a playing card with items displayed:
-      | color | type  |
+      | color | item  |
       | Grey  | Mouse |
       | Red   | Ghost |
     Then that card is valid according to game rules
     Given a playing card with items displayed:
-      | color | type  |
+      | color | item  |
       | Grey  | Mouse |
       | Red   | Chair |
     Then that card is not valid according to game rules
 
   Scenario: 10. Card is valid only if there is exactly one solution
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Green | Mouse  |
       | Grey  | Bottle |
     Then that card is not valid according to game rules
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Grey  | Bottle |
       | Red   | Mouse  |
     Then that card is not valid according to game rules
     Given a playing card with items displayed:
-      | color | type   |
+      | color | item   |
       | Grey  | Bottle |
       | Red   | Book   |
     Then that card is valid according to game rules
     Given a playing card with items displayed:
-      | color | type  |
+      | color | item  |
       | Grey  | Mouse |
       | Red   | Book  |
     Then that card is valid according to game rules
