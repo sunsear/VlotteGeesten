@@ -159,10 +159,12 @@ public class GeistesBlitz {
 
     public void finishRound() {
         Player winner = round.getWinner();
-        List<Player> losers = round.getLosers();
-        winner.addToWonCards(round.getShownCard());
-        for (Player loser : losers) {
-            loser.giveCardTo(winner);
+        if (winner != null) {
+            List<Player> losers = round.getLosers();
+            winner.addToWonCards(round.getShownCard());
+            for (Player loser : losers) {
+                loser.giveCardTo(winner);
+            }
         }
     }
 
