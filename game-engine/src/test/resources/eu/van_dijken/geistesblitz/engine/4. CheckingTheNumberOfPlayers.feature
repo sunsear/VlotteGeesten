@@ -1,5 +1,5 @@
 Feature: Checking the number of players
-  A game of GeistesBlitz only works with 2 to 8 players.
+  A game of GeistesBlitz can be played with 2 to 8 players.
 
   Scenario: 14. Minimum number of players allowed
     Given a new game of GeistesBlitz

@@ -11,7 +11,8 @@ Feature: Playing Cards should have a solution
       | Gray  | Mouse |
       | Blue  | Ghost |
     Then the correct solution should be the "Gray Mouse"
-    
+
+  Scenario: 
     Given a playing card with items displayed:
       | color | type  |
       | Blue  | Mouse |
@@ -25,6 +26,7 @@ Feature: Playing Cards should have a solution
       | Red   | Ghost |
     Then the correct solution should be the "Green Bottle"
 
+  Scenario: 
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |
@@ -37,7 +39,6 @@ Feature: Playing Cards should have a solution
       | Blue  | Bottle |
       | Gray  | Chair  |
     Then "Red Chair" should not be a correct solution
-
     Given a playing card with items displayed:
       | color | type   |
       | Blue  | Bottle |

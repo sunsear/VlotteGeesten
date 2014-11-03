@@ -21,6 +21,7 @@ import eu.van_dijken.geistesblitz.engine.Item;
 import eu.van_dijken.geistesblitz.engine.ItemColor;
 import eu.van_dijken.geistesblitz.engine.ItemType;
 import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
+import eu.van_dijken.geistesblitz.engine.Player;
 import eu.van_dijken.geistesblitz.engine.PlayingCard;
 import eu.van_dijken.geistesblitz.engine.TooManyPlayersException;
 
@@ -126,14 +127,6 @@ public class GameStepDefinitions {
         fail("Number of players should not be too many as it is 1 more than maxNumberOfPlayers: " + maxNumberOfPlayers);
     }
 
-    @Given("^a new round of play showing a card with a \"([^\" ]*) ([^\"]*)\"$")
-    public void a_new_round_of_play_showing_a_card_with_a(ItemColor colour, ItemType type) {
-        shownCard = new PlayingCard();
-        shownCard.addImages(new CardImage(colour, type));
-        putCardFirstInDeck();
-        context.getGame().round();
-    }
-
     private void putCardFirstInDeck() {
         context.getGame().availableCards().remove(shownCard);
         context.getGame().availableCards().add(0, shownCard);
@@ -148,11 +141,30 @@ public class GameStepDefinitions {
         putCardFirstInDeck();
         context.getGame().round();
     }
+    
+    @Given("^a new round of play showing a card$")
+    public void a_new_round_of_play_showing_a_card() {
+        shownCard = new PlayingCard();
+        shownCard.addImages(new CardImage(ItemColor.Gray, ItemType.Mouse));
+        shownCard.addImages(new CardImage(ItemColor.Green, ItemType.Book));
+        putCardFirstInDeck();
+    	context.getGame().round();
+    }    
 
     @When("^player (\\d+) chooses the \"([^\" ]*) ([^\"]*)\"$")
     public void player_chooses_the(int playerNumber, ItemColor colour, ItemType type) throws Throwable {
         context.getGame().provideSolution(playerNumber - 1, new Item(colour, type));
     }
+    
+    @When("^player (\\d+) provides the desired item$")
+    public void player_provides_the_desired_item(int playerNumber) {
+        context.getGame().provideSolution(playerNumber - 1, new Item(ItemColor.Gray, ItemType.Mouse)); 
+    }
+    
+    @When("^player (\\d+) provides an incorrect item$")
+    public void player_provides_an_incorrect_item(int playerNumber) {
+        context.getGame().provideSolution(playerNumber - 1, new Item(ItemColor.Blue, ItemType.Book)); 
+    }  
 
     @Then("^player (\\d+) has won the shown card$")
     public void player_wins_the_shown_card(int playerNumber) throws Throwable {
@@ -174,9 +186,16 @@ public class GameStepDefinitions {
 
     @Then("^player (\\d+) has won (\\d+) cards$")
     public void player_has_won_card(int playerNumber, int numberOfCardsWon) throws Throwable {
+        Player player = context.getGame().getPlayer(playerNumber - 1);
         for (int i = 0; i < numberOfCardsWon; i++) {
-            context.getGame().getPlayer(playerNumber - 1).addToWonCards(context.getGame().availableCards().remove(0));
+			player.addToWonCards(context.getGame().availableCards().remove(0));
         }
+    }
+    
+    @Then("^player (\\d+) now has a total of won cards of (\\d+)$")
+    public void player_now_has_a_total_of_won_cards_of(int playerNumber, int numberOfCardsWon) {
+        Player player = context.getGame().getPlayer(playerNumber - 1);
+        assertThat(player.getWonCards().size(), is(numberOfCardsWon));
     }
 
     @And("^player (\\d+) has to give a card away, reducing his total of won cards to (\\d+)$")
@@ -196,11 +215,11 @@ public class GameStepDefinitions {
                 context.getGame().getPlayer(playerNumber - 1).getWonCards().size());
     }
 
-    @When("^the round finishes$")
+    @Then("^the round finishes$")
     public void the_round_finishes() throws Throwable {
         context.getGame().finishRound();
     }
-
+    
     @When("^the game finishes$")
     public void the_game_finishes() throws Throwable {
         context.getGame().finish();

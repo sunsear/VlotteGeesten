@@ -13,17 +13,10 @@ public class ObjectWithColourAndType {
         return color;
     }
 
-    public void setColor(ItemColor color) {
-        this.color = color;
-    }
-
     public ItemType getType() {
         return type;
     }
 
-    public void setType(ItemType type) {
-        this.type = type;
-    }
 
     @Override
     public boolean equals(Object o) {
