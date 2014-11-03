@@ -1,14 +1,28 @@
 package eu.van_dijken.geistesblitz.steps;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.List;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.*;
-
-import java.util.List;
-
-import static org.junit.Assert.*;
+import eu.van_dijken.geistesblitz.engine.CardImage;
+import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
+import eu.van_dijken.geistesblitz.engine.Item;
+import eu.van_dijken.geistesblitz.engine.ItemColor;
+import eu.van_dijken.geistesblitz.engine.ItemType;
+import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
+import eu.van_dijken.geistesblitz.engine.PlayingCard;
+import eu.van_dijken.geistesblitz.engine.TooManyPlayersException;
 
 public class GameStepDefinitions {
     private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();
@@ -19,18 +33,16 @@ public class GameStepDefinitions {
     public void a_new_game_of_GeistesBlitz() {
         context.setGame(new GeistesBlitz());
     }
-
+    
+    @Then("^there should be (\\d+) items present$")
+    public void there_should_be_items_present(int number) {
+        assertThat(context.getGame().getItems().size(), is(number));
+    }    
+    
     @Then("^the following items should be present:$")
     public void the_following_game_items_should_be_present(List<Item> entries) throws Throwable {
         for (Item item : entries) {
             assertTrue(context.getGame().contains(item));
-        }
-    }
-
-    @Then("^the following items should not be present:$")
-    public void the_following_game_items_should_not_be_present(List<Item> entries) throws Throwable {
-        for (Item item : entries) {
-            assertFalse(context.getGame().contains(item));
         }
     }
 
