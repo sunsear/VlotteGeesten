@@ -151,6 +151,8 @@ public class GeistesBlitz {
         round = new GameRound(playingCards.remove(0));
     }
 
+    public PlayingCard shownCard() {return round.getShownCard();}
+
     public void provideSolution(int playerIndex, Item item) {
         round.provideSolution(players.get(playerIndex), item);
     }
@@ -200,4 +202,14 @@ public class GeistesBlitz {
     public Player getWinner() {
         return winner;
     }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+
 }
