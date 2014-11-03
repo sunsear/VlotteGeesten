@@ -1,7 +1,5 @@
-Feature: Playing Cards
-  In order to have a correctly working set of cards
-  Gamemaster
-  wants to check that cards have a solution
+Feature: Playing Cards should have a solution
+  A card depicts 2 images of an item. A card always leads to one desired item.
 
   Scenario: 3. Number of images on card
     Given A random Playing Card

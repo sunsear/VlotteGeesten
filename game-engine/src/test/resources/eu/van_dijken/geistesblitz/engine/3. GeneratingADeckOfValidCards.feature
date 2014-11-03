@@ -1,7 +1,6 @@
-Feature: Playing Card generation
-  In order to have a correctly working set of cards
-  Gamemaster
-  wants to generate a set of valid cards
+Feature: Generating a deck of valid cards
+  The deck of cards should be concise. In order to prevent a lot of duplication in solutions, we impose several rules on
+  what a valid item combination is.
 
   Background: Setting up a new game
     Given a new game of GeistesBlitz
