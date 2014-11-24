@@ -4,10 +4,11 @@ Feature: Game Materials
     Given a new game of GeistesBlitz
 	Then there should be 5 items present
 
-	Scenario: Items present
+  Scenario Outline: Items present
 	Given a new game of GeistesBlitz
-	Then the following items should be present:
-      | color | type   |
+	Then a <color> <item> should be present.
+    Examples:
+      | color | item   |
       | White | Ghost  |
       | Red   | Chair  |
       | Blue  | Book   |
