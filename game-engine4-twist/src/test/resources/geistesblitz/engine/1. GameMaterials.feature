@@ -1,7 +1,5 @@
 Feature: Game Materials
 
-  Scenario:
-
   Scenario: Number of items
     Given a game of GeistesBlitz
 	Then there should be 5 items present
