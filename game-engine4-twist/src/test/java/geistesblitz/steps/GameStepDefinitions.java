@@ -21,6 +21,10 @@ public class GameStepDefinitions {
     GeistesBlitz anotherGame;
     private PlayingCard shownCard;
 
+    @Given("^a game of GeistesBlitz$")
+    public void a_game_of_GeistesBlitz() throws Throwable {
+    }
+
     @Given("^a new game of GeistesBlitz$")
     public void a_new_game_of_GeistesBlitz() {
         context.setGame(new GeistesBlitz());

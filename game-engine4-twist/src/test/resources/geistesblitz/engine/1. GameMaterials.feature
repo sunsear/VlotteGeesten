@@ -3,11 +3,11 @@ Feature: Game Materials
   Scenario:
 
   Scenario: Number of items
-    Given a new game of GeistesBlitz
+    Given a game of GeistesBlitz
 	Then there should be 5 items present
 
   Scenario Outline: Items present
-	Given a new game of GeistesBlitz
+	Given a game of GeistesBlitz
 	Then a <color> <item> should be present.
     Examples:
       | color | item   |
