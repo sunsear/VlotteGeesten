@@ -1,10 +1,10 @@
-package eu.van_dijken.geistesblitz.engine;
+package geistesblitz.engine;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import eu.van_dijken.geistesblitz.material.PlayingCard;
+import geistesblitz.material.PlayingCard;
 
 public class Player {
     private final String name;

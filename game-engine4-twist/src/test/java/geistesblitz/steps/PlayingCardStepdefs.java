@@ -1,17 +1,15 @@
-package eu.van_dijken.geistesblitz.steps;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
+package geistesblitz.steps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import eu.van_dijken.geistesblitz.material.Color;
-import eu.van_dijken.geistesblitz.material.Image;
-import eu.van_dijken.geistesblitz.material.Item;
-import eu.van_dijken.geistesblitz.material.PlayingCard;
+import geistesblitz.material.Color;
+import geistesblitz.material.Image;
+import geistesblitz.material.Item;
+import geistesblitz.material.PlayingCard;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class PlayingCardStepdefs {
     private final GeistesBlitzTestContext context = GeistesBlitzTestContext.getInstance();

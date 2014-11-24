@@ -1,4 +1,4 @@
-package eu.van_dijken.geistesblitz.engine;
+package geistesblitz.engine;
 
 public class NotEnoughPlayersException extends RuntimeException {
 

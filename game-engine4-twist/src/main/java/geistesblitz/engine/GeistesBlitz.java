@@ -1,9 +1,9 @@
-package eu.van_dijken.geistesblitz.engine;
+package geistesblitz.engine;
 
-import eu.van_dijken.geistesblitz.material.Color;
-import eu.van_dijken.geistesblitz.material.Image;
-import eu.van_dijken.geistesblitz.material.Item;
-import eu.van_dijken.geistesblitz.material.PlayingCard;
+import geistesblitz.material.Color;
+import geistesblitz.material.Image;
+import geistesblitz.material.Item;
+import geistesblitz.material.PlayingCard;
 
 import java.util.ArrayList;
 import java.util.Collections;

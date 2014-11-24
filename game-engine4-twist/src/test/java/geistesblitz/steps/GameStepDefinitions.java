@@ -1,17 +1,17 @@
-package eu.van_dijken.geistesblitz.steps;
+package geistesblitz.steps;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import eu.van_dijken.geistesblitz.engine.GeistesBlitz;
-import eu.van_dijken.geistesblitz.engine.NotEnoughPlayersException;
-import eu.van_dijken.geistesblitz.engine.Player;
-import eu.van_dijken.geistesblitz.engine.TooManyPlayersException;
-import eu.van_dijken.geistesblitz.material.Color;
-import eu.van_dijken.geistesblitz.material.Image;
-import eu.van_dijken.geistesblitz.material.Item;
-import eu.van_dijken.geistesblitz.material.PlayingCard;
+import geistesblitz.engine.GeistesBlitz;
+import geistesblitz.engine.NotEnoughPlayersException;
+import geistesblitz.engine.Player;
+import geistesblitz.engine.TooManyPlayersException;
+import geistesblitz.material.Color;
+import geistesblitz.material.Image;
+import geistesblitz.material.Item;
+import geistesblitz.material.PlayingCard;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -222,24 +222,6 @@ public class GameStepDefinitions {
     @Then("^there is no winner$")
     public void there_is_no_winner() throws Throwable {
         assertNull(context.getGame().getWinner());
-    }
-
-    public class ItemDescription {
-        Color color;
-        String type;
-
-        public ItemDescription(String type, Color color) {
-            this.type = type;
-            this.color = color;
-        }
-
-        public Color getColor() {
-            return color;
-        }
-
-        public String getType() {
-            return type;
-        }
     }
 
 }

@@ -1,11 +1,11 @@
-package eu.van_dijken.geistesblitz.engine;
+package geistesblitz.engine;
+
+import geistesblitz.material.Item;
+import geistesblitz.material.PlayingCard;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import eu.van_dijken.geistesblitz.material.Item;
-import eu.van_dijken.geistesblitz.material.PlayingCard;
 
 public class GameRound {
     private final PlayingCard shownCard;
