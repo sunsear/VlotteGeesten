@@ -8,12 +8,6 @@ public class PlayingCard {
 
     private final List<Image> cardImages = new ArrayList<Image>();
 
-    public List<Image> images() {
-        cardImages.add(new Image(Item.Book, Color.Blue));
-        cardImages.add(new Image(Item.Bottle, Color.Red));
-        return cardImages;
-    }
-
     @Override
     public String toString() {
         return "PlayingCard{" +
@@ -47,10 +41,6 @@ public class PlayingCard {
             }
         }
         return false;
-    }
-
-    public void addImages(List<Image> imagesDisplayed) {
-        cardImages.addAll(imagesDisplayed);
     }
 
     public void addImages(Image... imagesDisplayed) {

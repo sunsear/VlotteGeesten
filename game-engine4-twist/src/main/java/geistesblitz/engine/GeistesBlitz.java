@@ -114,16 +114,6 @@ public class GeistesBlitz {
         return playingCards;
     }
 
-    public boolean isPresentOnce(PlayingCard cardToCheck) {
-        int foundTimes = 0;
-        for (PlayingCard card : playingCards) {
-            if (card.equals(cardToCheck)) {
-                foundTimes++;
-            }
-        }
-        return foundTimes == 1;
-    }
-
     public void addPlayer(String name) {
         players.add(new Player(name));
     }
