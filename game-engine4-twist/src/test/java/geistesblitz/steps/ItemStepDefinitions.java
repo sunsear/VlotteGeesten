@@ -11,7 +11,7 @@ public class ItemStepDefinitions {
    
     @Given("^a game of GeistesBlitz$")
     public void a_game_of_GeistesBlitz() {
-    	//Nothing needs to happen here; we merely need the "material" = the java classes
+    	// Nothing needs to happen here; we merely need the "material" -> the java classes
     }
 
     @Then("^there should be (\\d+) items present$")
