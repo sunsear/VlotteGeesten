@@ -6,7 +6,7 @@ Feature: Scenarios we forgot
     Given a new game of GeistesBlitz
     And 2 players in the game
 
-  Scenario: 21. Neither player chooses the correct solution
+  Scenario: Neither player chooses the correct solution
     What happens if neither player selects the correct solution? In our initial implementation this resulted in...
     Wait for it...
     A NullPointerException, Yay!

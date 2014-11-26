@@ -15,6 +15,6 @@ Feature: Game Materials
       | Green | Bottle |
       | Gray  | Mouse  |
 
-  Scenario: 2. The deck of cards
+  Scenario: The deck of cards
     Given a new game of GeistesBlitz
     Then the deck should contain 60 cards

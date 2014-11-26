@@ -1,7 +1,7 @@
 Feature: Playing Cards should have a solution
   A card depicts 2 images of an item. A card always leads to one desired item.
 
-  Scenario: 3. Number of images on card
+  Scenario: Number of images on card
     Given A random Playing Card
     Then it should contain 2 images
 
@@ -19,7 +19,7 @@ Feature: Playing Cards should have a solution
       | Red   | Chair |
     Then the correct solution should be the "Red Chair"
 
-  Scenario: 5. Solution is the item that is not shown and of which the colour was not shown
+  Scenario: Solution is the item that is not shown and of which the colour was not shown
     Given a playing card with items displayed:
       | color | item  |
       | Blue  | Mouse |

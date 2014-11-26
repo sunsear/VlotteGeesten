@@ -10,4 +10,4 @@ Feature: Spicing up the card generation
 
   Good luck!
 
-  Scenario: 22-?.
+  Scenario: ?.

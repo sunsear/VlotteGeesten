@@ -8,14 +8,14 @@ Feature: Playing rounds of the game should result in scoring
     Given a new game of GeistesBlitz
     And 2 players in the game
 
-  Scenario: 16. Player chooses the correct solution
+  Scenario: Player chooses the correct solution
     Given a new round of play showing a card
     When player 1 provides the desired item
     Then the round finishes
     And player 1 has won the shown card
     And the shown card is no longer in the deck
 
-  Scenario: 17. Player 1 chooses an incorrect item and has to give a card to winning player 2.
+  Scenario: Player 1 chooses an incorrect item and has to give a card to winning player 2.
     Given a new round of play showing a card
     And player 1 has won 1 cards
     And player 2 has won 0 cards
@@ -27,7 +27,7 @@ Feature: Playing rounds of the game should result in scoring
     And player 1 has to give a card away, reducing his total of won cards to 0
     And player 2 has received an extra card, making his total of won cards 2
 
-  Scenario: 18. Player 1 chooses an incorrect item but has no cards to give away.
+  Scenario: Player 1 chooses an incorrect item but has no cards to give away.
     Given a new round of play showing a card
     And player 1 has won 0 cards
     When player 1 provides an incorrect item
