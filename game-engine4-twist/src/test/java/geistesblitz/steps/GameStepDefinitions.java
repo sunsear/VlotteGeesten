@@ -21,65 +21,11 @@ public class GameStepDefinitions {
     GeistesBlitz anotherGame;
     private PlayingCard shownCard;
 
-    @Given("^a game of GeistesBlitz$")
-    public void a_game_of_GeistesBlitz() {
-    }
-
     @Given("^a new game of GeistesBlitz$")
     public void a_new_game_of_GeistesBlitz() {
         context.setGame(new GeistesBlitz());
     }
-
-    @Then("^there should be (\\d+) items present$")
-    public void there_should_be_items_present(int number) {
-        assertThat(Item.values().length, is(number));
-    }
-
-    @Then("^a ([^\" ]*) ([^\" ]*) should be present.$")
-    public void colored_item_should_be_present(Color color, Item item) throws Throwable {
-        assertThat(item.color(), is(color));
-
-    }
-
-    @Then("^the deck should contain (\\d+) cards$")
-    public void the_deck_should_contain_cards(int numCards) throws Throwable {
-        assertEquals(numCards, context.getGame().availableCards().size());
-    }
-
-    @Then("^that card is not valid according to game rules$")
-    public void that_card_is_not_valid_according_to_game_rules() throws Throwable {
-        assertFalse(context.getGame().isValid(context.getCard()));
-    }
-
-    @Then("^that card is valid according to game rules$")
-    public void that_card_is_valid_according_to_game_rules() throws Throwable {
-        assertTrue(context.getGame().isValid(context.getCard()));
-    }
-
-    @Then("^the deck should contain (\\d+) valid cards$")
-    public void the_deck_should_contain_valid_cards(int arg1) throws Throwable {
-        for (PlayingCard card : context.getGame().availableCards()) {
-            assertTrue("Playing Card " + card + " is not valid.", context.getGame().isValid(card));
-        }
-    }
-
-    @Then("^the deck should contain (\\d+) unique cards$")
-    public void the_deck_should_contain_unique_cards(int arg1) throws Throwable {
-        for (PlayingCard card : context.getGame().availableCards()) {
-            assertTrue(card + " is present in the deck more than once.", context.getGame().isPresentOnce(card));
-        }
-    }
-
-    @Given("^another new game$")
-    public void another_new_game() throws Throwable {
-        anotherGame = new GeistesBlitz();
-    }
-
-    @Then("^the decks of the two games should contain cards in a different order$")
-    public void the_decks_of_the_two_games_should_contain_cards_in_a_different_order() throws Throwable {
-        assertNotEquals(context.getGame().availableCards(), anotherGame.availableCards());
-    }
-
+    
     @Then("^the minimum number of players is (\\d+)$")
     public void the_minimum_number_of_players_is(int minNumberOfPlayers) throws Throwable {
         for (int i = 1; i < minNumberOfPlayers; i++) {
