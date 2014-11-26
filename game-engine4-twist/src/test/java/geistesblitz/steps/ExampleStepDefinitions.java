@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class ExampleStepDefs {
+public class ExampleStepDefinitions {
     ExampleGreeter greeter = new ExampleGreeter();
 
     @Given("^there are (\\d+) people in the room$")

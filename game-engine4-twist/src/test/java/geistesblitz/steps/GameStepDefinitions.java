@@ -22,7 +22,7 @@ public class GameStepDefinitions {
     private PlayingCard shownCard;
 
     @Given("^a game of GeistesBlitz$")
-    public void a_game_of_GeistesBlitz() throws Throwable {
+    public void a_game_of_GeistesBlitz() {
     }
 
     @Given("^a new game of GeistesBlitz$")
