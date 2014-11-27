@@ -20,9 +20,8 @@ public class ItemStepDefinitions {
     }
 
     @Then("^a ([^\" ]*) ([^\" ]*) should be present.$")
-    public void colored_item_should_be_present(Color color, Item item) throws Throwable {
-        assertThat(item.color(), is(color));
-
+    public void colored_item_should_be_present(String color, String item) throws Throwable {
+        assertThat(Item.valueOf(item).color(), is(Color.valueOf(color)));
     }
 
 }
