@@ -4,6 +4,10 @@ Feature: The deck of cards
     Given a game of GeistesBlitz
     Then there should be a deck of 80 different valid cards
 
+  Scenario: The deck of cards #start simpler
+    Given a game of GeistesBlitz
+    Then there should be a deck of 80 cards
+
   Scenario Outline: Each combination of two items is depicted the same number of times
     Given a game of GeistesBlitz
     Then there should be 8 cards showing <item1> and <item2>

@@ -6,22 +6,31 @@ import static org.junit.Assert.assertThat;
 import geistesblitz.material.Card;
 import geistesblitz.material.Deck;
 import geistesblitz.material.Item;
-
-import java.util.HashSet;
-import java.util.Set;
-
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
 public class DeckStepDefinitions {
 
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-		Set<Card> cards = new HashSet<Card>();
+//		Set<Card> cards = new HashSet<Card>();
+//		Deck deck = new Deck();
+//		while (deck.hasNext()) {
+//			cards.add(deck.draw());
+//		}
+//		assertThat(cards.size(), is(numberOfCards));
+        throw new PendingException();
+	}
+
+	@Then("^there should be a deck of (\\d+) cards$")
+	public void there_should_be_a_deck_of_cards(int numberOfCards) {
+		int found = 0;
 		Deck deck = new Deck();
 		while (deck.hasNext()) {
-			cards.add(deck.draw());
+			deck.draw();
+			found++;
 		}
-		assertThat(cards.size(), is(numberOfCards));
+		assertThat(found, is(numberOfCards));
 	}
 
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
@@ -71,15 +80,7 @@ public class DeckStepDefinitions {
 	@Then("^there should be (\\d+) cards for which the desired item is ([^\" ]*)$")
 	public void there_should_be_cards_for_which_the_desired_item_is_item1(
 			int numberOfCards, Item desiredItem) {
-		Deck deck = new Deck();
-		int found = 0;
-		while (deck.hasNext()) {
-			Card card = deck.draw();
-			if (card.desiredItem() == desiredItem) {
-				found++;
-			}
-		}
-		assertThat(found, is(numberOfCards));
+        throw new PendingException();
 	}
 
 }
