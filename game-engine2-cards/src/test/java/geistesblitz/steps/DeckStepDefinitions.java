@@ -4,11 +4,13 @@ import geistesblitz.material.Item;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
+import static org.junit.Assert.assertEquals;
+
 public class DeckStepDefinitions {
 
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-	    throw new PendingException();
+	    assertEquals(80,ItemStepDefinitions.game.getDeck().remainingCards());
 	}
 
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
