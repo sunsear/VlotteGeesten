@@ -2,8 +2,10 @@ package geistesblitz.steps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import geistesblitz.Color;
 import geistesblitz.GeistesBlitz;
 import geistesblitz.Item;
+import geistesblitz.ItemType;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +23,7 @@ public class ItemStepDefinitions {
     }
 
     @Then("^a ([^\" ]*) ([^\" ]*) should be present.$")
-    public void colored_item_should_be_present(String color, String item) {
+    public void colored_item_should_be_present(Color color, ItemType item) {
         assertTrue(GeistesBlitz.items().contains(new Item(color, item)));
     }
 

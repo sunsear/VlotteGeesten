@@ -4,11 +4,11 @@ package geistesblitz;
  * Implementation after 13 minutes
  */
 public class Item {
-    private final String color;
+    private final Color color;
 
-    private final String item;
+    private final ItemType item;
 
-    public Item(String color, String item) {
+    public Item(Color color, ItemType item) {
 
         this.color = color;
         this.item = item;
