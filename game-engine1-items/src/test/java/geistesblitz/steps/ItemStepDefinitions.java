@@ -19,7 +19,7 @@ public class ItemStepDefinitions {
 
     @Then("^there should be (\\d+) items present$")
     public void there_should_be_items_present(int number) {
-        assertEquals(GeistesBlitz.items().size(), number);
+        assertEquals(number, GeistesBlitz.items().size());
     }
 
     @Then("^a ([^\" ]*) ([^\" ]*) should be present.$")

@@ -11,6 +11,8 @@ import static geistesblitz.Color.*;
  */
 public class GeistesBlitz {
 
+    private static Deck deck = new Deck();
+
     public static List items() {
         ArrayList items = new ArrayList();
         items.add(new Item(White, Ghost));
@@ -19,5 +21,9 @@ public class GeistesBlitz {
         items.add(new Item(Blue, Book));
         items.add(new Item(Green, Bottle));
         return items;
+    }
+
+    public static Deck getDeck() {
+        return deck;
     }
 }
