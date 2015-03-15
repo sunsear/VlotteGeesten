@@ -1,5 +1,8 @@
 package geistesblitz.steps;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import geistesblitz.material.Deck;
 import geistesblitz.material.Item;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
@@ -8,8 +11,13 @@ public class DeckStepDefinitions {
 
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		Deck deck = new Deck();
+		int count = 0;
+		while (deck.hasNext()) {
+			deck.draw();
+			count++;
+		}
+		assertThat(count, is(numberOfCards));
 	}
 
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
