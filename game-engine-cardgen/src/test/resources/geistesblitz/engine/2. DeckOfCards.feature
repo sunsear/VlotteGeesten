@@ -2,12 +2,13 @@ Feature: The deck of cards
 
   Scenario: The deck of cards
     Given a game of GeistesBlitz
-    Then there should be a deck of 1 different valid cards
+    Then there should be a deck of 20 different valid cards
 #In progress towards: Then there should be a deck of 80 different valid cards
 
   Scenario Outline: Each combination of two items is depicted the same number of times
     Given a game of GeistesBlitz
-    Then there should be 8 cards showing <item1> and <item2>
+    Then there should be 2 cards showing <item1> and <item2>
+#In progress towards: Then there should be 8 cards showing <item1> and <item2>
 
     Examples:
       | item1 | item2  |
@@ -22,6 +23,8 @@ Feature: The deck of cards
       | item1 | item2 |
       | ghost | chair |
       | chair | ghost |
+
+#Next step: get the above to "green" + 2nd scenario in ValidCards
 
   Scenario Outline: Each combination of two items is used at least once to lead to each item not depicted as the desired item
     Given a game of GeistesBlitz

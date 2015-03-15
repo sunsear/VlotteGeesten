@@ -11,12 +11,7 @@ class DeckGenerator {
 		cards = new ArrayList<Card>();
 		cards.add(new Card(
 				new Image(Item.Mouse, Color.Gray),
-				new Image(Item.Ghost, Color.Blue),
-				Item.Mouse
-				));
-		cards.add(new Card(
-				new Image(Item.Mouse, Color.Gray),
-				new Image(Item.Ghost, Color.Blue),
+				new Image(Item.Ghost, Color.aRandomOneThatIsnt(Color.Gray, Color.White)),
 				Item.Mouse
 				));
 		return cards;
