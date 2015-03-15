@@ -13,7 +13,8 @@ public class Card {
 		}
 		this.image1 = image1;
 		this.image2 = image2;
-		this.desiredItem = desiredItem;	}
+		this.desiredItem = desiredItem;
+	}
 
 	public boolean hasDesiredItem(Item desiredItem) {
 		return this.desiredItem == desiredItem;
@@ -30,7 +31,8 @@ public class Card {
 		if (image2.depicts(item)) {
 			return image2;
 		}
-		throw new IllegalArgumentException("Item " + item + " is not depicted on this card");
+		throw new IllegalArgumentException("Item " + item
+				+ " is not depicted on this card");
 	}
 
 	@Override
@@ -38,8 +40,7 @@ public class Card {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + desiredItem.hashCode();
-		result = prime * result + image1.hashCode();
-		result = prime * result + image2.hashCode();
+		result = prime * result + image1.hashCode() + image2.hashCode();
 		return result;
 	}
 
@@ -58,15 +59,13 @@ public class Card {
 		if (desiredItem != other.desiredItem) {
 			return false;
 		}
-		if (!image1.equals(other.image1)) {
-			return false;
+		if (image1.equals(other.image1) && image2.equals(other.image2)) {
+			return true;
 		}
-		if (!image2.equals(other.image2)) {
-			return false;
+		if (image1.equals(other.image2) && image2.equals(other.image1)) {
+			return true;
 		}
-		return true;
+		return false;
 	}
-	
-	
 
 }
