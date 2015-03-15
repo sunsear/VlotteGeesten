@@ -1,27 +1,30 @@
 package geistesblitz.steps;
 
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Then;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import geistesblitz.material.Card;
 import geistesblitz.material.Deck;
 import geistesblitz.material.Item;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.Then;
 
 public class DeckStepDefinitions {
 
-	@Then("^there should be a deck of (\\d+) different valid cards$")
-	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-		List<Card> cards = new ArrayList<Card>();
+	@Then("^there should be a deck of (\\d+) cards$")
+	public void there_should_be_a_deck_of_cards(int numberOfCards) {
+		int count = 0;
 		Deck deck = new Deck();
 		while (deck.hasNext()) {
-			cards.add(deck.draw());
+			deck.draw();
+			count++;
 		}
-		assertThat(cards.size(), is(numberOfCards));
+		assertThat(count, is(numberOfCards));
+	}	
+	
+	@Then("^there should be a deck of (\\d+) different valid cards$")
+	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
 
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
@@ -41,7 +44,15 @@ public class DeckStepDefinitions {
 	@Then("^there should be (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
 	public void there_should_be_card_showing_item1_and_item2_for_which_the_desired_item_is_item1(
 			int numberOfCards, Item item1, Item item2, Item desiredItem) {
-        throw new PendingException("This needs implementation. Have fun! ;-)");
+		Deck deck = new Deck();
+		int found = 0;
+		while (deck.hasNext()) {
+			Card card = deck.draw();
+			if (card.depictsItem(item1) && card.depictsItem(item2) && card.hasDesiredItem(item1)) {
+				found++;
+			}
+		}
+		assertThat(found, is(numberOfCards));
 	}
 
 	@Then("^there should be at least (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")

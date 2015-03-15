@@ -5,14 +5,16 @@ public class Card {
 
 	private final Item item1;
 	private final Item item2;
+	private Item desiredItem;
 
-	Card(Item item1, Item item2) {
-		if (item1 == null || item2 == null) {
+	Card(Item item1, Item item2, Item desiredItem) {
+		if (item1 == null || item2 == null || desiredItem == null) {
 			throw new IllegalArgumentException(
-					"Every card should contain two images");
+					"Every card should depict two items and lead to one desired item");
 		}
 		this.item1 = item1;
 		this.item2 = item2;
+		this.desiredItem = desiredItem;
 	}
 
 	public boolean depictsItem(Item item) {
@@ -46,6 +48,10 @@ public class Card {
 			return false;
 		}
 		return true;
+	}
+
+	public boolean hasDesiredItem(Item item) {
+		return item == desiredItem;
 	}
 
 	
