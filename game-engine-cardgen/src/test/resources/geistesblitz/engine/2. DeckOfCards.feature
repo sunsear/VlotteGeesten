@@ -1,9 +1,5 @@
 Feature: The deck of cards
 
-  Scenario: The simplified deck of cards
-    Given a game of GeistesBlitz
-    Then there should be a deck of 80 cards
-
   Scenario: The deck of cards
     Given a game of GeistesBlitz
     Then there should be a deck of 80 different valid cards

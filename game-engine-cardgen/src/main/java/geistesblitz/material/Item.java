@@ -18,8 +18,4 @@ public enum Item {
 		return color;
 	}
 	
-    public Color getColor() {
-        return color;
-    }
-
 }
