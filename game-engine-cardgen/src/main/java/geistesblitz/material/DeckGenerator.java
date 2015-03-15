@@ -14,6 +14,11 @@ class DeckGenerator {
 				new Image(Item.Ghost, Color.Blue),
 				Item.Mouse
 				));
+		cards.add(new Card(
+				new Image(Item.Mouse, Color.Gray),
+				new Image(Item.Ghost, Color.Blue),
+				Item.Mouse
+				));
 		return cards;
 	}
 
