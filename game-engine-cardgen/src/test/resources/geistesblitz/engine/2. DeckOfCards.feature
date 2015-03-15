@@ -2,7 +2,7 @@ Feature: The deck of cards
 
   Scenario: The deck of cards
     Given a game of GeistesBlitz
-    Then there should be a deck of 0 different valid cards
+    Then there should be a deck of 1 different valid cards
 #In progress towards: Then there should be a deck of 80 different valid cards
 
   Scenario Outline: Each combination of two items is depicted the same number of times

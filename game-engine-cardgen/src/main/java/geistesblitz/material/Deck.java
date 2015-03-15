@@ -1,17 +1,28 @@
 package geistesblitz.material;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Random;
+
 public class Deck {
 
+	private List<Card> cards;
+	private ListIterator<Card> iterator;
+
+	public Deck() {
+		cards = new DeckGenerator().generate();
+		Collections.shuffle(cards, new Random(System.nanoTime()));
+		iterator = cards.listIterator();
+	}
+	
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		return iterator.hasNext();
 	}
 
 	public Card draw() {
-		// TODO Auto-generated method stub
-		return null;
+		return iterator.next();
+
 	}
-	
-	
 
 }

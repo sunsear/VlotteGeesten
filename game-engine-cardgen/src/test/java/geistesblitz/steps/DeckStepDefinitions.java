@@ -2,8 +2,13 @@ package geistesblitz.steps;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import geistesblitz.material.Card;
 import geistesblitz.material.Deck;
 import geistesblitz.material.Item;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
@@ -12,12 +17,11 @@ public class DeckStepDefinitions {
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
 		Deck deck = new Deck();
-		int count = 0;
+		Set<Card> cards = new HashSet<Card>();
 		while (deck.hasNext()) {
-			deck.draw();
-			count++;
+			cards.add(deck.draw());
 		}
-		assertThat(count, is(numberOfCards));
+		assertThat(cards.size(), is(numberOfCards));
 	}
 
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
