@@ -17,7 +17,7 @@ public class DeckStepDefinitions {
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
 		Deck deck = new Deck();
-		Set<Card> cards = new HashSet<Card>();
+	Set<Card> cards = new HashSet<Card>();
 		while (deck.hasNext()) {
 			cards.add(deck.draw());
 		}
@@ -27,8 +27,15 @@ public class DeckStepDefinitions {
 	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
 	public void there_should_be_cards_showing_item1_and_item2(
 			int numberOfCards, Item item1, Item item2) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+        int count = 0;
+        Deck deck = new Deck();
+        while (deck.hasNext()) {
+            Card card = deck.draw();
+            if (card.depicts(item1) && card.depicts(item2)){
+                count++;
+            }
+        }
+        assertThat(count, is(numberOfCards));
 	}
 
 	@Then("^there should be (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")

@@ -10,9 +10,14 @@ import geistesblitz.material.Item;
 
 import java.util.ArrayList;
 
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 public class ValidCardsStepDefinitions {
 
     private ArrayList<Card> cardsWithCorrectDesiredItem;
+    private Card cardDepictingDesiredItems;
 
     @Given("^a card for which the desired item is the \"(.*?)\"$")
     public void a_card_for_which_the_desired_item_is_the(Item desiredItem) {
@@ -32,13 +37,20 @@ public class ValidCardsStepDefinitions {
 
     @Given("^depicting the \"(.*?)\" and the \"(.*?)\"$")
     public void depicting_the_and_the(Item item1, Item item2) {
-        throw new PendingException();
+        for (Card card: cardsWithCorrectDesiredItem){
+            if (card.depicts(item1) && card.depicts(item2))
+                cardDepictingDesiredItems = card;
+        }
     }
 
     @Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in neither \"(.*?)\" nor \"(.*?)\"$")
     public void the_is_depicted_in_and_the_in_neither_nor(Item item1,
                                                           Color color1, Item item2, Color color2, Color color3) {
-        throw new PendingException();
+        assertThat(cardDepictingDesiredItems.getDepictedItem1(), is(item1));
+        assertThat(cardDepictingDesiredItems.getDepictedItem2(), is(item2));
+        assertThat(cardDepictingDesiredItems.getDepictedColor1(), is(color1));
+        assertThat(cardDepictingDesiredItems.getDepictedColor2(), is(not(color2)));
+        assertThat(cardDepictingDesiredItems.getDepictedColor2(), is(not(color3)));
     }
 
     @Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\" or the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\"$")
