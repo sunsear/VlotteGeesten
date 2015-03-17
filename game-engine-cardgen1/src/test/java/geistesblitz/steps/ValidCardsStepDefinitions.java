@@ -41,12 +41,12 @@ public class ValidCardsStepDefinitions {
         throw new PendingException();
     }
 
-    @Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\" or the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\"$")
-    public void the_item1_is_depicted_in_color1_and_the_item2_in_color2_or_the_item1_is_depicted_in_color2_and_the_item2_in_color1(
-            Item item1, Color color1, Item item2, Color color2, Item item3,
-            Color color3, Item item4, Color color4) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+//    @Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\" or the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in \"(.*?)\"$")
+//    public void the_item1_is_depicted_in_color1_and_the_item2_in_color2_or_the_item1_is_depicted_in_color2_and_the_item2_in_color1(
+//            Item item1, Color color1, Item item2, Color color2, Item item3,
+//            Color color3, Item item4, Color color4) {
+//        // Write code here that turns the phrase above into concrete actions
+//        throw new PendingException();
+//    }
 
 }

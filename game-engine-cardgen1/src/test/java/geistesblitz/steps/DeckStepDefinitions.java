@@ -24,32 +24,32 @@ public class DeckStepDefinitions {
 		assertThat(cards.size(), is(numberOfCards));
 	}
 
-	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
-	public void there_should_be_cards_showing_item1_and_item2(
+	@Then("^there should be (\\d+) cards depicting ([^\" ]*) and ([^\" ]*)$")
+	public void there_should_be_cards_depicting_item1_and_item2(
 			int numberOfCards, Item item1, Item item2) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
 	}
 
-	@Then("^there should be (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
-	public void there_should_be_card_showing_item1_and_item2_for_which_the_desired_item_is_item1(
-			int numberOfCards, Item item1, Item item2, Item desiredItem) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Then("^there should be at least (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
-	public void there_should_be_at_least_card_showing_item1_and_item2_for_which_the_desired_item_is_item3(
-			int numberOfCards, Item item1, Item item2, Item desiredItem) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Then("^there should be (\\d+) cards for which the desired item is ([^\" ]*)$")
-	public void there_should_be_cards_for_which_the_desired_item_is_item1(
-			int numberOfCards, Item desiredItem) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
+//	@Then("^there should be (\\d+) card depicting ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
+//	public void there_should_be_card_depicting_item1_and_item2_for_which_the_desired_item_is_item1(
+//			int numberOfCards, Item item1, Item item2, Item desiredItem) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new PendingException();
+//	}
+//
+//	@Then("^there should be at least (\\d+) card depicting ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
+//	public void there_should_be_at_least_card_depicting_item1_and_item2_for_which_the_desired_item_is_item3(
+//			int numberOfCards, Item item1, Item item2, Item desiredItem) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new PendingException();
+//	}
+//
+//	@Then("^there should be (\\d+) cards for which the desired item is ([^\" ]*)$")
+//	public void there_should_be_cards_for_which_the_desired_item_is_item1(
+//			int numberOfCards, Item desiredItem) {
+//	    // Write code here that turns the phrase above into concrete actions
+//	    throw new PendingException();
+//	}
 
 }
