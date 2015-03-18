@@ -2,26 +2,6 @@ package geistesblitz.material;
 
 public class Card {
 
-    public Item getDepictedItem1() {
-        return depictedItem1;
-    }
-
-    public Color getDepictedColor1() {
-        return depictedColor1;
-    }
-
-    public Item getDepictedItem2() {
-        return depictedItem2;
-    }
-
-    public Color getDepictedColor2() {
-        return depictedColor2;
-    }
-
-    private final Item depictedItem1 = Item.Mouse;
-    private final Color depictedColor1 = Color.Gray;
-    private final Item depictedItem2 = Item.Ghost;
-    private final Color depictedColor2 = Color.Green;
     private final Item desiredItem;
 
     public Card(Item desiredItem) {
@@ -62,7 +42,4 @@ public class Card {
         return false;
     }
 
-    public boolean depicts(Item item) {
-        return depictedItem1 == item || depictedItem2 == item;
-    }
 }

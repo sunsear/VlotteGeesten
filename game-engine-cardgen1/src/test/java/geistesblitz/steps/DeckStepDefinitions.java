@@ -14,29 +14,21 @@ import static org.junit.Assert.assertThat;
 
 public class DeckStepDefinitions {
 
-	@Then("^there should be a deck of (\\d+) different valid cards$")
-	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-		Deck deck = new Deck();
-	Set<Card> cards = new HashSet<Card>();
-		while (deck.hasNext()) {
-			cards.add(deck.draw());
-		}
-		assertThat(cards.size(), is(numberOfCards));
-	}
-
-	@Then("^there should be (\\d+) cards depicting ([^\" ]*) and ([^\" ]*)$")
-	public void there_should_be_cards_depicting_item1_and_item2(
-			int numberOfCards, Item item1, Item item2) {
-        int count = 0;
+    @Then("^there should be a deck of (\\d+) different valid cards$")
+    public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
         Deck deck = new Deck();
+        Set<Card> cards = new HashSet<Card>();
         while (deck.hasNext()) {
-            Card card = deck.draw();
-            if (card.depicts(item1) && card.depicts(item2)){
-                count++;
-            }
+            cards.add(deck.draw());
         }
-        assertThat(count, is(numberOfCards));
-	}
+        assertThat(cards.size(), is(numberOfCards));
+    }
+
+    @Then("^there should be (\\d+) cards depicting ([^\" ]*) and ([^\" ]*)$")
+    public void there_should_be_cards_depicting_item1_and_item2(
+            int numberOfCards, Item item1, Item item2) {
+        throw new PendingException();
+    }
 
 //	@Then("^there should be (\\d+) card depicting ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
 //	public void there_should_be_card_depicting_item1_and_item2_for_which_the_desired_item_is_item1(
