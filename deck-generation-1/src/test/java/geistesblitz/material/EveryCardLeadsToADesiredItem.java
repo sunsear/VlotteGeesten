@@ -9,6 +9,6 @@ public class EveryCardLeadsToADesiredItem {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void cantCreateCardWithDesiredItemMissing() throws Exception {
-		new Card(null);
+		new Card(null, Item.Mouse, Color.Gray, Item.Bottle, Color.Blue);
 	}
 }

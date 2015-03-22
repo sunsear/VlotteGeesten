@@ -7,11 +7,6 @@ Feature: Valid cards
     And depicting the "mouse" and the "ghost"
     Then the "mouse" is depicted in "gray" and the "ghost" in neither "gray" nor "white"
 
-  Scenario: MvD: I like it better if this were written:
-    Given a card depicting a "gray" "mouse" and the "ghost"
-    Then the "mouse" is the desired item
-    And the "ghost" is depicted in neither "gray" nor "white"
-
 #  Scenario:
 #    Given a card for which the desired item is the "chair"
 #    And depicting the "mouse" and the "chair"
