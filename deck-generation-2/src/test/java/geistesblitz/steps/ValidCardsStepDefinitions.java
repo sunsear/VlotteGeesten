@@ -3,6 +3,7 @@ package geistesblitz.steps;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 import geistesblitz.material.Card;
 import geistesblitz.material.Color;
 import geistesblitz.material.Deck;
@@ -31,7 +32,7 @@ public class ValidCardsStepDefinitions {
 			}
 		}
 		if (cardsWithCorrectDesiredItem.size() == 0) {
-			throw new Error("No such card available");
+			fail("No such card available");
 		}
 	}
 
@@ -44,7 +45,7 @@ public class ValidCardsStepDefinitions {
 				return;
 			}
 		}
-		throw new Error("No such card available");
+		fail("No such card available");
 	}
 
 	@Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in neither \"(.*?)\" nor \"(.*?)\"$")
