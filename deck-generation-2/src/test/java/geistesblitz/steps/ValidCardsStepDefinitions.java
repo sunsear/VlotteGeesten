@@ -20,7 +20,7 @@ public class ValidCardsStepDefinitions {
 	private Card matchingCard;
 
 	@Given("^a card for which the desired item is the \"(.*?)\"$")
-	public void a_card_for_which_the_desired_item_is_the_gray(Item desiredItem) {
+	public void a_card_for_which_the_desired_item_is_the(Item desiredItem) {
 		cardsWithCorrectDesiredItem = new ArrayList<Card>();
 		Deck deck = new Deck();
 		Card currentCard;
@@ -41,19 +41,17 @@ public class ValidCardsStepDefinitions {
 		for (Card currentCard : cardsWithCorrectDesiredItem) {
 			if (currentCard.depicts(item1) && currentCard.depicts(item2)) {
 				matchingCard = currentCard;
-				break;
+				return;
 			}
 		}
-		if (matchingCard == null) {
-			throw new Error("No such card available");
-		}
+		throw new Error("No such card available");
 	}
 
 	@Then("^the \"(.*?)\" is depicted in \"(.*?)\" and the \"(.*?)\" in neither \"(.*?)\" nor \"(.*?)\"$")
 	public void the_is_depicted_in_and_the_in_neither_nor(Item item1,
 			Color color1, Item item2, Color color2, Color color3) {
-		assertThat(matchingCard.getImage(item1).getColor(), is(color1));
-		Color colorOfItem2 = matchingCard.getImage(item2).getColor();
+		assertThat(matchingCard.colorDepictedFor(item1), is(color1));
+		Color colorOfItem2 = matchingCard.colorDepictedFor(item2);
 		assertThat(colorOfItem2, is(not(color2)));
 		assertThat(colorOfItem2, is(not(color3)));
 	}

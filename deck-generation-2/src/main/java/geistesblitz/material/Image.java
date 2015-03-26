@@ -2,9 +2,9 @@ package geistesblitz.material;
 
 public class Image {
 
-	private Item item;
-	private Color color;
-
+	private final Item item;
+	private final Color color;
+	
 	public Image(Item item, Color color) {
 		if (item == null || color == null) {
 			throw new IllegalArgumentException("Every image should depict an item in a color");
@@ -13,12 +13,12 @@ public class Image {
 		this.color = color;
 	}
 
-	public Color getColor() {
-		return color;
-	}
-
 	boolean depicts(Item item) {
 		return this.item == item;
+	}
+
+	public Color depictedColor() {
+		return color;
 	}
 
 	@Override
@@ -50,7 +50,5 @@ public class Image {
 		}
 		return true;
 	}
-	
-	
 
 }

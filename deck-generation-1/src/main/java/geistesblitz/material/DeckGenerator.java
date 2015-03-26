@@ -9,6 +9,8 @@ class DeckGenerator {
 
 	List<Card> generate() {
 		cards = new ArrayList<Card>();
+		cards.add(new Card(Item.Mouse, new Image(Item.Mouse, Color.Gray),
+				new Image(Item.Ghost, Color.Blue)));
 		return cards;
 	}
 
