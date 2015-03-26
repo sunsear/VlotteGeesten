@@ -16,37 +16,37 @@ public class DeckStepDefinitions {
 
 	@Then("^there should be a deck of (\\d+) different valid cards$")
 	public void there_should_be_a_deck_of_different_valid_cards(int numberOfCards) {
-		Set<Card> cards = new HashSet<Card>();
 		Deck deck = new Deck();
+		Set<Card> cards = new HashSet<Card>();
 		while (deck.hasNext()) {
 			cards.add(deck.draw());
 		}
 		assertThat(cards.size(), is(numberOfCards));
 	}
 
-	@Then("^there should be (\\d+) cards showing ([^\" ]*) and ([^\" ]*)$")
-	public void there_should_be_cards_showing_item1_and_item2(
+	@Then("^there should be (\\d+) cards depicting ([^\" ]*) and ([^\" ]*)$")
+	public void there_should_be_cards_depicting_item1_and_item2(
 			int numberOfCards, Item item1, Item item2) {
 		Deck deck = new Deck();
 		int found = 0;
 		while (deck.hasNext()) {
 			Card card = deck.draw();
-			if (card.depictsItem(item1) && card.depictsItem(item2)) {
+			if (card.depicts(item1) && card.depicts(item2)) {
 				found++;
 			}
 		}
 		assertThat(found, is(numberOfCards));
 	}
 
-	@Then("^there should be (\\d+) card showing ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
-	public void there_should_be_card_showing_item1_and_item2_for_which_the_desired_item_is_item1(
+	@Then("^there should be (\\d+) card depicting ([^\" ]*) and ([^\" ]*) for which the desired item is ([^\" ]*)$")
+	public void there_should_be_card_depicting_item1_and_item2_for_which_the_desired_item_is_item1(
 			int numberOfCards, Item item1, Item item2, Item desiredItem) {
 		Deck deck = new Deck();
 		int found = 0;
 		while (deck.hasNext()) {
 			Card card = deck.draw();
-			if (card.depictsItem(item1) && card.depictsItem(item2)
-					&& card.desiredItem() == desiredItem) {
+			if (card.depicts(item1) && card.depicts(item2)
+					&& card.hasDesiredItem(desiredItem)) {
 				found++;
 			}
 		}
@@ -60,8 +60,8 @@ public class DeckStepDefinitions {
 		int found = 0;
 		while (deck.hasNext()) {
 			Card card = deck.draw();
-			if (card.depictsItem(item1) && card.depictsItem(item2)
-					&& card.desiredItem() == desiredItem) {
+			if (card.depicts(item1) && card.depicts(item2)
+					&& card.hasDesiredItem(desiredItem)) {
 				found++;
 			}
 		}
@@ -75,7 +75,7 @@ public class DeckStepDefinitions {
 		int found = 0;
 		while (deck.hasNext()) {
 			Card card = deck.draw();
-			if (card.desiredItem() == desiredItem) {
+			if (card.hasDesiredItem(desiredItem)) {
 				found++;
 			}
 		}

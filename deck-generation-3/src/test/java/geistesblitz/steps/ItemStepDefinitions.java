@@ -1,11 +1,12 @@
 package geistesblitz.steps;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import geistesblitz.material.Color;
-import geistesblitz.material.Item;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import geistesblitz.material.Color;
+import geistesblitz.material.Item;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ItemStepDefinitions {
    

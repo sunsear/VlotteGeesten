@@ -15,17 +15,13 @@ public class Deck {
 		Collections.shuffle(cards, new Random(System.nanoTime()));
 		iterator = cards.listIterator();
 	}
-
-	public int size() {
-		return cards.size();
+	
+	public boolean hasNext() {
+		return iterator.hasNext();
 	}
 
 	public Card draw() {
 		return iterator.next();
-	}
-
-	public boolean hasNext() {
-		return iterator.hasNext();
 	}
 
 }

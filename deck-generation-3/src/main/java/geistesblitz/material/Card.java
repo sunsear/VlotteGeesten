@@ -1,6 +1,5 @@
 package geistesblitz.material;
 
-
 public class Card {
 
 	private final Item desiredItem;
@@ -10,25 +9,27 @@ public class Card {
 	Card(Item desiredItem, Image image1, Image image2) {
 		if (desiredItem == null || image1 == null || image2 == null) {
 			throw new IllegalArgumentException(
-					"Every card should contain two images and lead to a desired item");
+					"Every card should depict two items and lead to one desired item.");
 		}
 		this.desiredItem = desiredItem;
 		this.image1 = image1;
 		this.image2 = image2;
 	}
 
-	public Item desiredItem() {
-		return desiredItem;
+	public boolean hasDesiredItem(Item item) {
+		return item == desiredItem;
 	}
 
-	public boolean depictsItem(Item item) {
-		return image1.getItem() == item || image2.getItem() == item;
+	public boolean depicts(Item item) {
+		return image1.depicts(item) || image2.depicts(item);
 	}
 
-	public Image getImage(Item item) {
-		if (image1.getItem() == item) return image1;
-		if (image2.getItem() == item) return image2;	
-		throw new IllegalArgumentException("Item " + item + "not depicted");
+	public Color colorDepictedFor(Item item) {
+		if (image1.depicts(item))
+			return image1.depictedColor();
+		if (image2.depicts(item))
+			return image2.depictedColor();
+		throw new IllegalArgumentException("Item" + item + "is not depicted");
 	}
 
 	@Override
@@ -55,21 +56,13 @@ public class Card {
 		if (desiredItem != other.desiredItem) {
 			return false;
 		}
-		if (!other.depictsItem(image1.getItem())) {
-			return false;
+		if (image1.equals(other.image1) && image2.equals(other.image2)) {
+			return true;
 		}
-		if (!other.getImage(image1.getItem()).equals(image1)) {
-			return false;
+		if (image1.equals(other.image2) && image2.equals(other.image1)) {
+			return true;
 		}
-		if (!other.depictsItem(image2.getItem())) {
-			return false;
-		}
-		if (!other.getImage(image2.getItem()).equals(image2)) {
-			return false;
-		}
-		return true;
+		return false;
 	}
 
-	
-	
 }
