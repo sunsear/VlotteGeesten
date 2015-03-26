@@ -6,7 +6,7 @@ public class Card {
 	private final Image image1;
 	private final Image image2;
 
-	public Card(Item desiredItem, Image image1, Image image2) {
+	Card(Item desiredItem, Image image1, Image image2) {
 		if (desiredItem == null || image1 == null || image2 == null) {
 			throw new IllegalArgumentException(
 					"Every card should depict two items and lead to one desired item.");

@@ -22,7 +22,6 @@ public class Deck {
 
 	public Card draw() {
 		return iterator.next();
-
 	}
 
 }
